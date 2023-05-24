@@ -1,0 +1,77 @@
+/* Footer.scss */
+
+/* Footer container */
+.footer-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  /* Contact information section */
+  .contact-info {
+    margin-bottom: 20px;
+  }
+  
+  .contact-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+  }
+  
+  /* Company information section */
+  .company-info {
+    margin-bottom: 20px;
+  }
+  
+  .company-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .company-info p {
+    margin: 5px 0;
+  }
+  
+  /* Social media section */
+  .social-media {
+    margin-bottom: 20px;
+  }
+  
+  .social-media h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .social-media ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .social-media li {
+    margin-right: 10px;
+  }
+  
+  /* Copyright section */
+  .copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .copy a {
+    text-decoration: none;
+    color: #666;
+  }
+  
+  /* Chatbot section */
+  .chatbot-container {
+    /* Add your chatbot styles here */
+  }
+  
+  

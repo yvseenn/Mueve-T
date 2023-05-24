@@ -1,0 +1,49 @@
+.nav{
+  height: 150px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-around;
+  // padding-top: 40px;
+  // padding-bottom: 30px;
+  // margin-left: 50px;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  // font-family: 'Nunito Sans';
+  // font-weight: 700;
+  font-family: 'Playfair Display';
+  font-weight: bold;
+}
+
+img{
+  height: 80px;
+  width: 20%;
+  border-radius: 4px;
+  // margin-left: -150px;
+  // margin-top: 30px;
+  margin-left: 50px;
+}
+
+ul{
+//    margin-left: -500px;
+  margin-right: 100px;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content:flex-end;
+  align-content: center;
+  // gap: 120px;
+  gap: 50px;
+  // height: 100px;
+  // width: 100%;
+  background-color: black;
+}
+
+
+a{
+  color: white;
+  text-decoration:none;
+  background-color: black;
+}
