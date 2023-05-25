@@ -1,99 +1,52 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import {VehicleContext} from "../../context/Users.context"
 
-const LoginForm = ({ onLogin }) => {
-  const [inputValue, setInputValue] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = inputValue;
+export default function LoginFormComponent(){
 
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
-  };
+  const [mail, setMail] = useState('')
+  const [pwd, setPwd] = useState('')
+  const [msgSuccess, setMsgSuccess] = useState('')
+  const [msgError, setMsgError] = useState('')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "http://localhost:4000/login",
-        {
-          ...inputValue,
-        },
-        { withCredentials: true }
-      );
-      const { success, message } = data;
-      if (success) {
-        onLogin(message);
-      } else {
-        toast.error(message, {
-          position: "bottom-left",
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    setInputValue({
-      email: "",
-      password: "",
-    });
-  };
+  const {login,user} = useContext(VehicleContext)
 
+  async function tryToLogin(){
+      try{
+          await login(mail,pwd)
+          setMsgSuccess("Logged correctly!")
+          setMsgError("")
+      }catch(error){
+          setMsgSuccess("")
+          setMsgError(error.response.data)
+      }    
+  }
+
+if(user){
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Enter your email"
-          onChange={handleOnChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="Enter your password"
-          onChange={handleOnChange}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
-
-const Login = () => {
-  const navigate = useNavigate();
-
-  const handleLogin = (message) => {
-    toast.success(message, {
-      position: "bottom-left",
-    });
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
-  };
-
+    <Navigate to="/home" replace></Navigate>
+  )
+}else{
   return (
-    <div className="form_container">
-      <h2>Login Account</h2>
-      <LoginForm onLogin={handleLogin} />
-      <span>
-        Already have an account? <Link to={"/signup"}>Signup</Link>
-      </span>
-      <ToastContainer />
-    </div>
-  );
-};
+    <>
+      <div>
+                    <input value={mail} onChange={(e)=> setMail(e.target.value)} type="email" placeholder="email" />
+                </div>
+                <div>
+                    <input value={pwd} onChange={(e)=> setPwd(e.target.value)} type="password" placeholder="contraseña" />
+                </div>
+                <div>
+                   {msgError? <small style={{color:'red'}}>{msgError}</small>: ''} 
+                </div>
+                <div>
+                   {msgSuccess? <small style={{color:'green'}}>{msgSuccess}</small>: ''} 
+                </div>
+                <div>
+                    <button onClick={tryToLogin}>login</button>
+                </div>
+                <small>Todavía no estás registrado? <Link to="/signup">Regístrate aquí</Link></small>
+    </>
+  )
+}
 
-export default Login;
+}
