@@ -1,6 +1,8 @@
 import "./Nav.scss"
 import { Link } from "react-router-dom"
-export const Nav= () => {
+
+
+function Nav (){
   return (
     <div className="nav">
         <img src="./src/assets/fotos/logo.png" alt="logo" />
@@ -16,3 +18,5 @@ export const Nav= () => {
 
   )
 }
+
+export default Nav
