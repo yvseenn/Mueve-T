@@ -1,11 +1,11 @@
-import LoginFormComponent from '../../components/login/Login.component'
-
+import LoginFormComponent from '../../components/login/Login.component';
+import './Login.scss';
 const LoginPage = () => {
   return (
-    <div>
-    body de la pagina Login
+    <form className='login'>
+    {/* body de la pagina Login */}
       <LoginFormComponent></LoginFormComponent>
-    </div>
+    </form>
   )
 }
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { VehicleContext } from "../../context/Users.context";
 import { useContext, useState } from "react";
-
+import './signup.scss';
 export default function SignupForm() {
   const { signup } = useContext(VehicleContext);
 
@@ -38,7 +38,7 @@ export default function SignupForm() {
 
   return (
     <>
-      <div>
+      <div className="register">
         <input
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
@@ -46,7 +46,7 @@ export default function SignupForm() {
           placeholder="nombre"
         />
       </div>
-      <div>
+      <div className="datos">
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -55,11 +55,11 @@ export default function SignupForm() {
         />
       </div>
 
-      <button onClick={togglePasswordVisibility}>
+      <button className="button" onClick={togglePasswordVisibility}>
         {showPassword ? "Ocultar 😑" : "Mostrar 😃"}
       </button>
 
-      <div>
+      <div className="contraseñas">
         <input
           value={pwd}
           onChange={(e) => setPwd(e.target.value)}
@@ -67,7 +67,7 @@ export default function SignupForm() {
           placeholder="contraseña"
         />
       </div>
-      <div>
+      <div className="pwd2">
         <input
           value={pwd2}
           onChange={(e) => setPwd2(e.target.value)}
@@ -75,7 +75,7 @@ export default function SignupForm() {
           placeholder="repite contraseña"
         />
       </div>
-      <div>
+      <div className="small">
         {!passwordMatch && (
           <small style={{ color: "red" }}>*Las contraseñas no coinciden*</small>
         )}
@@ -86,14 +86,14 @@ export default function SignupForm() {
         )}
       </div>
 
-      <div>
+      <div className="msg">
         {msgError && <small style={{ color: "red" }}>{msgError}</small>}
       </div>
       <div>
         {msgSuccess && <small style={{ color: "green" }}>{msgSuccess}</small>}
       </div>
       <div>
-        <button
+        <button className="button"
           disabled={!passwordMatch || !passwordLength}
           onClick={handleSignup}
         >
