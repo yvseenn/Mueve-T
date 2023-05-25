@@ -1,0 +1,83 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .register,
+    .datos,
+    .contraseñas,
+    .pwd2 {
+      margin-bottom: 20px;
+  
+      input {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-bottom: 2px solid #4caf50;
+        background-color: transparent;
+        font-size: 16px;
+        color: #333333;
+  
+        &::placeholder {
+          color: #999999;
+        }
+  
+        &:focus {
+          outline: none;
+          border-bottom-color: #45a049;
+        }
+      }
+    }
+  
+    .button {
+      padding: 12px 24px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  
+      &:hover {
+        background-color: #45a049;
+      }
+  
+      &.show-password {
+        margin-bottom: 20px;
+      }
+    }
+  
+    .small {
+      margin-bottom: 10px;
+      font-size: 14px;
+  
+      small {
+        color: #ff0000; /* Red */
+      }
+    }
+  
+    .msg {
+      margin-bottom: 10px;
+  
+      small {
+        color: #ff0000; /* Red */
+      }
+    }
+  
+    small {
+      font-size: 14px;
+      color: #333333;
+  
+      a {
+        color: #4caf50;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+  
+        &:hover {
+          color: #45a049;
+        }
+      }
+    }
+  }
+  

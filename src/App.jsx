@@ -5,6 +5,7 @@ import Nav from "./core/nav/Nav.core"
 import LoginPage from "./pages/login/Login.page";
 import { VehicleContext } from "./context/Users.context";
 import { useContext } from "react";
+import SignupPage from "./pages/signup/Signup.page";
 
 function App() {
 
@@ -15,6 +16,8 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+
       </Routes>
       <Footer />
     </div>
