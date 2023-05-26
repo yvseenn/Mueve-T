@@ -20,7 +20,7 @@ export const VehicleContextProvider = ({ children }) => {
   useEffect(()=>{
     try{
       const userstr = localStorage.getItem("_user");
-      const token =localStorage.getItem("_token");
+      const token =localStorage.getItem("_token").replaceAll('"','');
 
       if(token){
         setToken(token)
@@ -30,7 +30,7 @@ export const VehicleContextProvider = ({ children }) => {
         setUser(JSON.parse(userstr))
       }
     }catch{
-
+      //
     }
    
   },[])
@@ -96,6 +96,11 @@ export const VehicleContextProvider = ({ children }) => {
     return res.data
   }
 
+  async function deleteVehicle(id) {
+    await axios.delete(BASEURL + `/fleet/${id}?token=${token}`);
+    setFleet(fleet.filter(x=>x._id!== id))
+}
+
     //   useEffect(() => {
     //   async function getVehicleByID(id) {
     //     const res = await axios.get(BASEURL + `/fleet/${id}`);
@@ -130,9 +135,7 @@ export const VehicleContextProvider = ({ children }) => {
   //     const response = await axios.patch(`${BASEURL}auth/${id}`, { name: newName });
   // }
 
-  // async function deleteVehicle(id) {
-  //     await axios.delete(BASEURL + `fleet/${id}`);
-  // }
+  
 
   // async function createRental() {
   //     const response = await axios.post(BASEURL + `rental`);
@@ -156,6 +159,7 @@ export const VehicleContextProvider = ({ children }) => {
         signup,
         logOut,
         updateUser,
+        deleteVehicle,
         fleet,
         rental,
         // rentalID,

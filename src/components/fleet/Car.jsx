@@ -1,8 +1,12 @@
-import  { useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { VehicleContext } from '../../context/Users.context';
 
 const CarDetails = () => {
+
+    const {deleteVehicle,user} = useContext(VehicleContext)
+    const navigate = useNavigate()
   const [carDetails, setCarDetails] = useState(null);
     const BASEURL = 'http://localhost:8000'
 
@@ -21,6 +25,18 @@ const CarDetails = () => {
     getVehicleByID(id);
   }, []);
 
+  async function tryDeleteCoche(){
+    try {
+        await deleteVehicle(id)
+        alert("coche borrado")
+        navigate("/fleet",{replace: true})
+    }
+    catch (error) {
+        alert("ha ocurrido un error")
+    }
+    
+  }
+
   if (!carDetails) {
     return <p>Loading car details...</p>;
   }
@@ -32,6 +48,12 @@ const CarDetails = () => {
           <p>Car brand: {carDetails.brand}</p>
           <p>Car model: {carDetails.model}</p>
           <p>year: {carDetails.year}</p>
+
+        {
+           user && user.role==="admin"?
+            <button onClick={tryDeleteCoche}>borrar</button>: ""
+        }
+          
 </figure>
     </div>
   );
