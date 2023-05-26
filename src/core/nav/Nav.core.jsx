@@ -10,7 +10,7 @@ function Nav () {
             <div className="nav_logo">LOGOTIPO</div>
             <div className={`nav_item ${isOpen && "open"}`}>
             <Link className='link' to="/">🏠 HOME</Link>
-            <Link className='link' to="/flota">🚗 FLOTA DE COCHES</Link>
+            <Link className='link' to="/fleet">🚗 FLOTA DE COCHES</Link>
             <Link className='link' to="/gestion">📅 GESTIONAR RESERVA</Link>
             <Link className='link_login' to="/login">LOGIN</Link>
             <Link className='link' to="/signup">✏️ REGISTER</Link>
