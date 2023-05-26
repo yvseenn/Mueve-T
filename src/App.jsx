@@ -24,13 +24,12 @@ function App() {
     <Nav/>
       <Routes>
       <Route path='/login' element={user?<Navigate to="/areaprivada" replace></Navigate>:<LoginPage></LoginPage>} ></Route>
-        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/signup" element={user?<Navigate to="/areaprivada" replace></Navigate>:<SignupPage />} />
         <Route path="/" element={<Home />} />
         {/* <Route path='/fleet' element={<FleetPages/>} >  </Route> */}
         <Route path='/areaprivada' element={user?<AreaPrivadaPage></AreaPrivadaPage>:<Navigate to="/login" replace></Navigate>} ></Route>
         <Route path='/fleet' element={<FleetPages/>} >  </Route>
-        <Route path='/gestion' element={<Gestion/>} >  </Route>
-        <Route path='/fleet' element={<FleetPages/>} ></Route>
+        <Route path='/gestion' element={user?<Gestion/>:<Navigate to="/login" replace></Navigate>} >  </Route>
       </Routes>
       <Footer />
     </div>
