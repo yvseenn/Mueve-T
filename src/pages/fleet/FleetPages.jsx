@@ -1,12 +1,12 @@
-import Fleet from "../../components/fleet/Fleet"
+// import Fleet from "../../components/fleet/Fleet"
 
 
-function fleetPages  ()  {
-  return (
-    <div>
-      <Fleet/>
-    </div>
-  )
-}
+// function fleetPages  ()  {
+//   return (
+//     <div>
+//       <Fleet/>
+//     </div>
+//   )
+// }
 
-export default fleetPages;
+// export default fleetPages;
