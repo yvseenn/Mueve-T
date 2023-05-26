@@ -1,98 +1,93 @@
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
 
-const RentaForm = () => {
-  const initial_state = {
-    clineteID: "",
-    carID: "",
+const ReservationForm = ({ carDetails }) => {
+  const [reservationData, setReservationData] = useState({
+    name: "",
+    email: "",
     sDate: "",
     fDate: "",
-    finalized: "false",
+    rentPrice: carDetails?.rentPrice || 0,
+    carId: carDetails?.id || "",
+  });
+
+  useEffect(() => {
+    setReservationData((prevData) => ({
+      ...prevData,
+      rentPrice: carDetails?.rentPrice || "",
+      carId: carDetails?.id || "",
+    }));
+  }, [carDetails]);
+
+  const handleChange = (e) => {
+    setReservationData({
+      ...reservationData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const [state, setState] = useState(initial_state);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:8000"); 
-        console.log(response.data); 
-      } catch (error) {
-        console.error(error); 
-      }
-    };
+    try {
+      const res = await axios.post("http://localhost:8000/rental", reservationData);
+      console.log(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    fetchData();
-  }, []);
+  return (
+    <div>
+      <h2>Reservation Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={reservationData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={reservationData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="sDate">Start Date:</label>
+          <input
+            type="date"
+            id="sDate"
+            name="sDate"
+            value={reservationData.sDate}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="fDate">End Date:</label>
+          <input
+            type="date"
+            id="fDate"
+            name="fDate"
+            value={reservationData.fDate}
+            onChange={handleChange}
+          />
+          {reservationData.rentPrice !== "" && (
+            <p>Rent Price: ${reservationData.rentPrice}</p>
+          )}
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
 
-  useEffect(() => {
-    const postData = async () => {
-        try {
-            const response = await axios.post("http://localhost:8000", state); 
-            console.log(response.data); 
-          } catch (error) {
-            console.error(error); 
-          }
-        };
-    
-        postData();
-      }, [state]);
-    
-      const submitForm = async (event) => {
-        event.preventDefault();
-         await axios.post("http://localhost:8000/rental", state);
-        setState(initial_state);
-      };
-    
-      const handleInput = (ev) => {
-        const { id, value } = ev.target;
-        setState({ ...state, [id]: value });
-      };
-    
-      return (
-        <>
-          <form onSubmit={submitForm}>
-          <figure>
-            <label>Client</label>
-            <input
-              type="text"
-              id="client"
-              value={state.clineteID}
-              onChange={handleInput}
-            />
-            <label>Car</label>
-            <input
-              type="text"
-              id="car"
-              value={state.carID}
-              onChange={handleInput}
-            />
-            <label>Pick up Date</label>
-            <input
-              type="date"
-              id="date"
-              value={state.sDate}
-              onChange={handleInput}
-            />
-              <label>Return Date</label>
-             <input
-              type="date"
-              id="date"
-              value={state.fDate}
-              onChange={handleInput}
-            />
-              <label>finalized ?</label>
-             <input
-              type="checkbox"
-              id="date"
-              value={state.finalized}
-              onChange={handleInput}
-            />
-          </figure>
-          </form>
-        </>
-      );
-    };
-    
-    export default RentaForm;
-    
+export default ReservationForm;

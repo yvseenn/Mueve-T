@@ -1,0 +1,35 @@
+.car-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .car-details-container figure {
+    text-align: center;
+  }
+  
+  .car-details-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .car-details-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .car-details-container p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .car-details-container .delete-button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
