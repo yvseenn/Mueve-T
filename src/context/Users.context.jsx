@@ -71,6 +71,9 @@ export const VehicleContextProvider = ({ children }) => {
 
   function logOut() {
     localStorage.removeItem("_user");
+    localStorage.removeItem("_token");
+    setUser(null)
+    setToken("")
   }
 
   async function login(username, password) {
