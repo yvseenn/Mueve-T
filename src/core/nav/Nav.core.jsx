@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { VehicleContext } from '../../context/Users.context'
 
 function Nav () {
-    const {user} = useContext(VehicleContext)
+    const {user, logOut} = useContext(VehicleContext)
     const [isOpen, setIsOpen] = useState(false)
     return(
         <div className='navbar'>
@@ -18,6 +18,7 @@ function Nav () {
             <Link className='link_area' to="/areaprivada">Area Privada</Link>
             <Link className='link' to="/signup">✏️ REGISTER</Link>
             <Link className='link' to="/idiomas">🌐 IDIOMAS</Link>
+            <button className='link' onClick={logOut}> Logout</button>
             <span>{user?user.email:""}</span>
             </div>
             <div className={`nav_toggle ${isOpen && "open"}`} onClick={()=> setIsOpen(!isOpen)}>
