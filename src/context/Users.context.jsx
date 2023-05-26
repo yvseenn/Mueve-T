@@ -10,8 +10,9 @@ export const VehicleContextProvider = ({ children }) =>{
   const [fleet, setFleet] = useState([]);
   const [rental, setRental] = useState([]);
   const [rentalID, setRentalID] = useState([]);
-  // const [carID, setCarID] = useState([]);
   const [login, setlogin] = useState("");
+//   const [carID, setCarID] = useState([]);
+  
 
 
 useEffect(() => {
@@ -56,21 +57,48 @@ useEffect(() => {
     } catch (error) {
       console.error(error);
     }
-  }
+  }, []);
   
-  function logOut() {
+    function logOut() {
     localStorage.removeItem("_user");
   }
   
+  
+  // hacer peticion desde cada componenet *************************************
+//     useEffect(() => {
+//     async function getVehicleByID(id) {
+//       const res = await axios.get(BASEURL + `/fleet/${id}`);
+//       setCarID(res.data);
+//       console.log(res.data);
+//     }
+//     getVehicleByID();
+//   },[])
 
-  // useEffect(() => {
-  //   async function getVehicleByID(id) {
-  //     const res = await axios.get(BASEURL + `/fleet/${id}`);
-  //     setCarID(res.data);
-  //     console.log(res.data);
-  //   }
-  //   getVehicleByID();
-  // },[])
+//   async function addVehicle(addCar) {
+//     await axios.post(BASEURL + "/fleet", addCar);
+//     dispatch({ type: "ADD_VEHICLE", payload: addCar });
+//   }
+
+//   async function login(mail, pwd) {
+//     const res = await axios.post(BASEURL + "/user/login", { email: mail, password: pwd });
+//     dispatch({ type: "DO_LOGIN", payload: res.data.user });
+//     localStorage.setItem("_user", JSON.stringify(res.data.user));
+//   }
+
+//   async function signup(mail, pwd, name) {
+//     await axios.post(BASEURL + "/user/signup", { email: mail, password: pwd, name: name });
+//   }
+
+//   async function changeName(newName) {
+//     await axios.patch(BASEURL + `/auth/${state.user.id}`, { name: newName });
+//     dispatch({ type: "CHANGE_NAME", payload: newName });
+// >>>>>>> develop
+//   }
+  
+
+  
+
+
 
   // async function updateUser(id, newName) {
     //     const response = await axios.patch(`${BASEURL}auth/${id}`, { name: newName });
