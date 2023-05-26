@@ -11,6 +11,8 @@ import SignupPage from "./pages/signup/Signup.page";
 import Home from "./pages/home/Home.pages";
 import  FleetPages from './pages/fleet/FleetPages';
 import AreaPrivadaPage from "./pages/AreaPrivada.page";
+import Gestion from "./pages/gestion/Gestion";
+
 
 
 function App() {
@@ -26,7 +28,8 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path='/fleet' element={<FleetPages/>} >  </Route> */}
         <Route path='/areaprivada' element={user?<AreaPrivadaPage></AreaPrivadaPage>:<Navigate to="/login" replace></Navigate>} ></Route>
-        
+        <Route path='/fleet' element={<FleetPages/>} >  </Route>
+        <Route path='/gestion' element={<Gestion/>} >  </Route>
         <Route path='/fleet' element={<FleetPages/>} ></Route>
       </Routes>
       <Footer />
