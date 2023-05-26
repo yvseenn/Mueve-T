@@ -77,13 +77,13 @@ export default function VehicleContextProvider({ children }) {
   }
 
   async function login(mail, pwd) {
-    const res = await axios.post(BASEURL + "/login", { email: mail, password: pwd });
+    const res = await axios.post(BASEURL + "/user/login", { email: mail, password: pwd });
     dispatch({ type: "DO_LOGIN", payload: res.data.user });
     localStorage.setItem("_user", JSON.stringify(res.data.user));
   }
 
   async function signup(mail, pwd, name) {
-    await axios.post(BASEURL + "/signup", { email: mail, password: pwd, name: name });
+    await axios.post(BASEURL + "/user/signup", { email: mail, password: pwd, name: name });
   }
 
   async function changeName(newName) {
