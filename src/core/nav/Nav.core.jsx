@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Nav.scss"
 import { useState } from "react"
 import { Link } from 'react-router-dom'
+import { VehicleContext } from '../../context/Users.context'
 
 function Nav () {
+    const {user} = useContext(VehicleContext)
     const [isOpen, setIsOpen] = useState(false)
     return(
         <div className='navbar'>
@@ -16,6 +18,7 @@ function Nav () {
             <Link className='link_area' to="/areaprivada">Area Privada</Link>
             <Link className='link' to="/signup">✏️ REGISTER</Link>
             <Link className='link' to="/idiomas">🌐 IDIOMAS</Link>
+            <span>{user?user.email:""}</span>
             </div>
             <div className={`nav_toggle ${isOpen && "open"}`} onClick={()=> setIsOpen(!isOpen)}>
                 <span></span>

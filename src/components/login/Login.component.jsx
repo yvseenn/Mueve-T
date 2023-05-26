@@ -4,8 +4,8 @@ import { VehicleContext } from "../../context/Users.context";
 import "./login.scss";
 
 export default function LoginFormComponent() {
-  const [mail, setMail] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [mail, setMail] = useState("pereira@mail.com");
+  const [pwd, setPwd] = useState("1234567");
   const [msgSuccess, setMsgSuccess] = useState("");
   const [msgError, setMsgError] = useState("");
 

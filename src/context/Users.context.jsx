@@ -10,7 +10,27 @@ export const VehicleContextProvider = ({ children }) => {
   const [rental, setRental] = useState([]);
   const [rentalID, setRentalID] = useState([]);
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState("")
   //   const [carID, setCarID] = useState([]);
+
+
+  useEffect(()=>{
+    try{
+      const userstr = localStorage.getItem("_user");
+      const token =localStorage.getItem("_token");
+
+      if(token){
+        setToken(token)
+      }
+
+      if(userstr){
+        setUser(JSON.parse(userstr))
+      }
+    }catch{
+
+    }
+   
+  },[])
 
   useEffect(() => {
     const getAllRentals = async () => {
@@ -58,8 +78,16 @@ export const VehicleContextProvider = ({ children }) => {
       email: username,
       password: password,
     });
-    setUser(res.data);
+    console.log(res.data)
+    setUser(res.data.user);
+    setToken(res.data.token)
     localStorage.setItem("_user", JSON.stringify(res.data.user));
+    localStorage.setItem("_token", JSON.stringify(res.data.token));
+  }
+
+  async function updateUser(userData){
+    const res = await axios.patch(BASEURL+ "/user/"+user._id,userData)
+    return res.data
   }
 
   // hacer peticion desde cada componenet *************************************
@@ -122,6 +150,7 @@ export const VehicleContextProvider = ({ children }) => {
         login,
         signup,
         logOut,
+        updateUser,
         fleet,
         rental,
         rentalID,
