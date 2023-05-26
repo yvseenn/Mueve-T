@@ -1,49 +1,96 @@
-.nav{
-  height: 150px;
+.navbar{
+  background-color: rgb(27, 36, 53);
+  height: 60px;
   width: 100%;
-  background-color: black;
-  color: white;
+  // ------------------------------------
+  // position: fixed;                      
+  // ------------------------------------
   display: flex;
-  flex-flow: nowrap row;
-  justify-content: space-around;
-  // padding-top: 40px;
-  // padding-bottom: 30px;
-  // margin-left: 50px;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
-  gap: 10px;
-  // font-family: 'Nunito Sans';
-  // font-weight: 700;
-  font-family: 'Playfair Display';
-  font-weight: bold;
+
 }
 
-img{
-  height: 80px;
-  width: 20%;
-  border-radius: 4px;
-  // margin-left: -150px;
-  // margin-top: 30px;
-  margin-left: 50px;
+.nav_logo{
+font-weight: bold;
+font-size: 20px;
+margin: 20px;
+color: white;
 }
 
-ul{
-//    margin-left: -500px;
-  margin-right: 100px;
+.link_login{
+padding-top: 3px;
+}
+
+.nav_item{
+  padding-left: 15px;
+  gap: 20px;
+  color: rgb(60, 60, 165);
+  position: relative;
+  text-decoration: none;
   display: flex;
   flex-flow: wrap row;
-  justify-content:flex-end;
-  align-content: center;
-  // gap: 120px;
-  gap: 50px;
-  // height: 100px;
-  // width: 100%;
-  background-color: black;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: start;
+  margin-right: 40px;
 }
 
-
 a{
-  color: white;
-  text-decoration:none;
-  background-color: black;
+  color: black;
+  text-decoration: none;
+}
+
+.nav_toggle{
+  display: none   ;
+}
+
+@media (max-width: 768px) {
+  .nav_item{
+      position: absolute;
+      top: 60px;
+      left: 0px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0px;
+      height: -webkit-fill-available;
+      transform: translateX(-100%);
+      transition: 0.3s ease all;
+  }
+
+  .nav_item.open{
+      transform: translateX(0) !important;
+  }
+
+  .nav_toggle{
+      display: flex !important;
+      flex-direction: column;
+      margin: 15px;
+  }
+
+  .nav_toggle span{
+      width: 30px;
+      height: 4px;
+      background-color: grey;
+      margin-bottom: 5px;
+      border-radius: 2px;
+      transform-origin: 5px;
+      transition: all 0.2s linear;
+  }
+
+  .nav_toggle.open > span{
+      transform: rotate(45deg) translate(0px, 0px);
+  }
+
+  .nav_toggle.open > span:nth-child(2){
+      display: none;
+  }
+
+  .nav_toggle.open > span:nth-child(3){
+      transform: rotate(-45deg) translate(-5px, 1px);
+  }
+
 }

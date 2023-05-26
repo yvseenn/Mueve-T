@@ -1,38 +1,22 @@
-import { useAuth } from "../../context/Users.context";
+import "./Home.scss"
+import React from 'react'
+import fondoCoche from '../../assets/fotos/fondo_coche.jpeg'
+import fotoPortada from '../../assets/fotos/ferrariRojoFrente.jpeg'
 
-function HomePage() {
-  const { user, signup, login, logout } = useAuth();
-
-  // Example usage
-  const handleSignup = () => {
-    const userData = { username: "exampleUser", password: "examplePassword" };
-    signup(userData);
-  };
-
-  const handleLogin = () => {
-    const userData = { username: "exampleUser", password: "examplePassword" };
-    login(userData);
-  };
-
-  const handleLogout = () => {
-    logout();
-  };
-
+const Home = () => {
   return (
-    <div>
-      {user ? (
-        <div>
-          <h2>Welcome, {user.username}!</h2>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <button onClick={handleSignup}>Sign Up</button>
-          <button onClick={handleLogin}>Log In</button>
-        </div>
-      )}
+    <div className="Home">
+      {/* <img src="../../assets/fotos/fondo_coche.jpeg" alt="" /> */}
+      <div className="caja_portada">
+        <img className="foto_portada" src={fotoPortada} alt="cochePortada" />
+      </div>
+
+      <div className="prueba">
+        <img src={fondoCoche} alt="hola" />
+      </div>
+
     </div>
-  );
+  )
 }
 
-export default HomePage;
+export default Home

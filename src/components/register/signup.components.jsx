@@ -1,11 +1,98 @@
-import React from 'react'
+import "./signup.scss";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { API } from "../../shared/Api";
+import { useState } from "react";
 
-const signup = () => {
+export default function SignupForm() {
+  const [phone, setPhone] = useState("");
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const onSubmit = (formData) => {
+    console.log(formData);
+    API.post("user/signup", formData).then((res) => {
+      console.log(res);
+      navigate("/login");
+    }).catch((err) => {
+      console.log(err);
+    })
+  };
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="form_input">
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          {...register("name", { required: true })}
+        />
+      </div>
 
-export default signup
+      <div className="form_input">
+        <label htmlFor="surname">Surname:</label>
+        <input
+          type="text"
+          id="surname"
+          {...register("surname", { required: true })}
+        />
+      </div>
+
+      <div className="form_input">
+        <label htmlFor="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          {...register("email", { required: true })}
+        />
+      </div>
+
+      <div className="form_input">
+        <label htmlFor="">Password:</label>
+        <input
+          type="password"
+          id="password"
+          {...register("password", { required: true })}
+        />
+      </div>
+
+      <div className="form_input">
+        <label>Phone Number</label>
+        <input
+        type="text"
+          // country={'es'}
+          // value={phone}
+          // onChange={(e)=> setPhone(e.target.value)}
+          id="phoneNumber"
+          {...register('phoneNumber', { required: true })}
+        />
+      </div>
+      <div className="form_input">
+        <label htmlFor="dni">DNI</label>
+        <input
+          type="text"
+          id="dni"
+          {...register("dni", { required: true })}
+        />
+      </div>
+
+      <div className="form_input">
+        <label htmlFor="dOB">Date Of birth</label>
+        <input
+          type="date"
+          id="dateOfBirth"
+          {...register("birthdate", { required: true })}
+        />
+      </div>
+
+      <div className="form_input">
+        <label htmlFor="direction">Direction</label>
+        <input
+          type="direction"
+          id="direction"
+          {...register("direction", { required: true })}
+        />
+      </div>
+      <button type="submit">Registrarse</button>
+    </form>
+  );
+}
