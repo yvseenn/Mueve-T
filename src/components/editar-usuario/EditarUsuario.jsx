@@ -1,79 +1,48 @@
-import { useContext, useState } from "react"
-import { VehicleContext } from "../../context/Users.context"
-import './EditarUsuario.css';
-export default function EditarUsuarioComponent(){
-    const {usuario, changeName, changeEmail, changePassword} =useContext(VehicleContext);
+import { useContext, useState } from "react";
+import { VehicleContext } from "../../context/Users.context";
+import "./EditarUsuario.css";
+export default function EditarUsuarioComponent() {
+  const { user, updateUser } = useContext(VehicleContext);
 
-    const [nombre, setNombre] = useState (usuario ? usuario.name : "");
-    const [email, setEmail] = useState (usuario ? usuario.email : "");
-    const [contraseña, setContraseña] = useState ( "");
+  const [name, setName] = useState(user ? user.name : "");
+  const [email, setEmail] = useState(user ? user.email : "");
 
-    async function intentarCambiarDatos() {
-        try {
-          if (nombre) {
-            await changeName(nombre);
-            alert("Nombre cambiado correctamente");
-          }
-    
-          if (email) {
-            await changeEmail(email);
-            alert("Correo electrónico cambiado correctamente");
-          }
-    
-          if (contraseña) {
-            await changePassword(contraseña);
-            alert("Contraseña cambiada correctamente");
-          }
-        } catch (error) {
-          alert(error.response.data);
-        }
-      }
-    
-      return (
-        <form className="card">
-             <div>
-            <label>Nombre:</label>
-            <input
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              type="text"
-              placeholder="Nombre"
-            />
-          </div>
-          <div>
-            <label>Correo electrónico:</label>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Correo electrónico"
-            />
-          </div>
-          <div>
-            <label>Contraseña:</label>
-            <input
-              value={contraseña}
-              onChange={(e) => setContraseña(e.target.value)}
-              type="Password"
-              placeholder="contraseña"
-            />
-          </div>
-         
-          <div>
-            <button onClick={intentarCambiarDatos}>Guardar cambios</button>
-          </div>
-        </form>
-      );
+  async function intentarCambiarDatos() {
+    try {
+      const resp = await updateUser({ email, name });
+      console.log(resp);
+      alert("usuario actualizado!");
+    } catch (error) {
+      alert(error.response.data);
+    }
+  }
 
+  return (
+    <div className="card">
+      <div>
+        <label>Nombre:</label>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          placeholder="Nombre"
+        />
+      </div>
+      <div>
+        <label>Correo electrónico:</label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Correo electrónico"
+        />
+      </div>
 
-
-
-
-
-
-
-
-
+      <div>
+        <button onClick={intentarCambiarDatos}>Guardar cambios</button>
+      </div>
+    </div>
+  );
 }
 
 //     async function intentarCambiarNombre(){
@@ -138,25 +107,6 @@ export default function EditarUsuarioComponent(){
 //         </div>
 //       );
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //     const {usuario, changeName} = useContext(VehicleContext)
 //     const[nombre, setNombre] = useState(usuario?usuario.name: '')
