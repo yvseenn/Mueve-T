@@ -53,11 +53,12 @@ useEffect(() => {
   
   async function signup(mail, pwd, name) {
     try {
-      await axios.post(BASEURL + "/user/signup", { email: mail, password: pwd, name: name });
+      await axios.post(BASEURL + "user/signup", { email: mail, password: pwd, name: name });
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }
+  
   
     function logOut() {
     localStorage.removeItem("_user");
