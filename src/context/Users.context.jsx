@@ -8,10 +8,13 @@ export const VehicleContext = createContext();
 export const VehicleContextProvider = ({ children }) => {
   const [fleet, setFleet] = useState([]);
   const [rental, setRental] = useState([]);
-  const [rentalID, setRentalID] = useState([]);
+  // const [rentalID, setRentalID] = useState([]);
   const [user, setUser] = useState(null);
+
+    // const [carID, setCarID] = useState([]);
+
   const [token, setToken] = useState("")
-  //   const [carID, setCarID] = useState([]);
+
 
 
   useEffect(()=>{
@@ -39,14 +42,14 @@ export const VehicleContextProvider = ({ children }) => {
     };
     getAllRentals();
   }, []);
-  useEffect(() => {
-    async function getRentalByID(id) {
-      const rentalId = await axios.get(BASEURL + `/rental/${id}`);
-      setRentalID(rentalId.data);
-      console.log(rentalId.data);
-    }
-    getRentalByID();
-  }, []);
+  // useEffect(() => {
+  //   async function getRentalByID(id) {
+  //     const rentalId = await axios.get(BASEURL + `/rental/${id}`);
+  //     setRentalID(rentalId.data);
+  //     console.log(rentalId.data);
+  //   }
+  //   getRentalByID();
+  // }, []);
 
   useEffect(() => {
     async function getAllVehicles() {
@@ -93,15 +96,14 @@ export const VehicleContextProvider = ({ children }) => {
     return res.data
   }
 
-  // hacer peticion desde cada componenet *************************************
-  //     useEffect(() => {
-  //     async function getVehicleByID(id) {
-  //       const res = await axios.get(BASEURL + `/fleet/${id}`);
-  //       setCarID(res.data);
-  //       console.log(res.data);
-  //     }
-  //     getVehicleByID();
-  //   },[])
+    //   useEffect(() => {
+    //   async function getVehicleByID(id) {
+    //     const res = await axios.get(BASEURL + `/fleet/${id}`);
+    //     setCarID(res.data);
+    //     console.log(res.data);
+    //   }
+    //   getVehicleByID();
+    // },[])
 
   //   async function addVehicle(addCar) {
   //     await axios.post(BASEURL + "/fleet", addCar);
@@ -156,8 +158,9 @@ export const VehicleContextProvider = ({ children }) => {
         updateUser,
         fleet,
         rental,
-        rentalID,
+        // rentalID,
         user,
+        // carID
       }}
     >
       {children}
