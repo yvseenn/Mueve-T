@@ -13,6 +13,7 @@ function Nav () {
             <Link className='link' to="/fleet">🚗 FLOTA DE COCHES</Link>
             <Link className='link' to="/gestion">📅 GESTIONAR RESERVA</Link>
             <Link className='link_login' to="/login">LOGIN</Link>
+            <Link className='link_area' to="/areaprivada">Area Privada</Link>
             <Link className='link' to="/signup">✏️ REGISTER</Link>
             <Link className='link' to="/idiomas">🌐 IDIOMAS</Link>
             </div>
