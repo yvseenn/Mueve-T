@@ -8,34 +8,34 @@ export const VehicleContext = createContext();
 
 export const VehicleContextProvider = ({ children }) =>{
   const [fleet, setFleet] = useState([]);
-  const [rental, setRental] = useState([]);
-  const [rentalID, setRentalID] = useState([]);
+  // const [rental, setRental] = useState([]);
+  // const [rentalID, setRentalID] = useState([]);
   const [login, setlogin] = useState("");
 //   const [carID, setCarID] = useState([]);
   
 
 
-useEffect(() => {
-  const getAllRentals = async () => {
-    const rentals = await axios.get(BASEURL+"/rental")
-    setRental(rentals.data);
-  };
-  getAllRentals();
-},[]);
-useEffect(() => {
-  async function getRentalByID(id) {
-    const rentalId = await axios.get(BASEURL + `/rental/${id}`);
-    setRentalID(rentalId.data);
-    console.log(rentalId.data);
-  }
-  getRentalByID();
-},[])
+// useEffect(() => {
+//   const getAllRentals = async () => {
+//     const rentals = await axios.get(BASEURL+"/rental")
+//     setRental(rentals.data);
+//   };
+//   getAllRentals();
+// },[]);
+// useEffect(() => {
+//   async function getRentalByID(id) {
+//     const rentalId = await axios.get(BASEURL + `/rental/${id}`);
+//     setRentalID(rentalId.data);
+//     // console.log(rentalId.data);
+//   }
+//   getRentalByID();
+// },[])
 
   useEffect(() => {
     async function getAllVehicles() {
         const res = await axios.get(BASEURL + "/fleet");
         setFleet(res.data.Cars);
-        console.log(res.data.Cars);
+        // console.log(res.data.Cars);
     }
     getAllVehicles();
   }, []);
@@ -51,13 +51,13 @@ useEffect(() => {
     login()
   },[])
   
-  async function signup(mail, pwd, name) {
-    try {
-      await axios.post(BASEURL + "user/signup", { email: mail, password: pwd, name: name });
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // async function signup(mail, pwd, name) {
+  //   try {
+  //     await axios.post(BASEURL + "user/signup", { email: mail, password: pwd, name: name });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
   
   
     function logOut() {
@@ -128,11 +128,10 @@ useEffect(() => {
           <VehicleContext.Provider
       value={{
         login,
-        signup,
         logOut,
         fleet,
-        rental,
-        rentalID,
+        // rental,
+        // rentalID,
               }}
     >
       {children}
