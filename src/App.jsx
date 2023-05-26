@@ -4,7 +4,7 @@ import Footer from "./core/footer/Footer";
 import Nav from "./core/nav/Nav.core"
 import LoginPage from "./pages/login/Login.page";
 import { VehicleContext } from "./context/Users.context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import SignupPage from "./pages/signup/Signup.page";
 // import { Carrusel } from "./assets/carrusel/carrusel";
 // import  FleetPages from './pages/fleet/FleetPages';
@@ -27,7 +27,7 @@ function App() {
         {/* <Route path='/fleet' element={<FleetPages/>} >  </Route> */}
         <Route path='/areaprivada' element={user?<AreaPrivadaPage></AreaPrivadaPage>:<Navigate to="/login" replace></Navigate>} ></Route>
         
-        <Route path='/fleet' element={<FleetPages/>} >  </Route>
+        <Route path='/fleet' element={<FleetPages/>} ></Route>
       </Routes>
       <Footer />
     </div>
