@@ -1,21 +1,25 @@
 import  { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router';
 
-const CarDetails = ({ id }) => {
+const CarDetails = () => {
   const [carDetails, setCarDetails] = useState(null);
     const BASEURL = 'http://localhost:8000'
+
+    const {id} = useParams()
+
   useEffect(() => {
-    async function getVehicleByID(id) {
+    async function getVehicleByID() {
       try {
         const res = await axios.get(BASEURL + `/fleet/${id}`);
-        setCarDetails(res.data);
+        setCarDetails(res.data.Vehicle);
         console.log(res.data);
       } catch (error) {
         console.error(error);
       }
     }
     getVehicleByID(id);
-  }, [id]);
+  }, []);
 
   if (!carDetails) {
     return <p>Loading car details...</p>;
@@ -25,9 +29,9 @@ const CarDetails = ({ id }) => {
     <div>
 <figure>
           <h2>Car Details</h2>
-          <p>Car ID: {carDetails.id}</p>
-          <p>Car Name: {carDetails.name}</p>
-          <p>Car Model: {carDetails.model}</p>
+          <p>Car brand: {carDetails.brand}</p>
+          <p>Car model: {carDetails.model}</p>
+          <p>year: {carDetails.year}</p>
 </figure>
     </div>
   );
