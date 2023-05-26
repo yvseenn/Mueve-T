@@ -1,0 +1,39 @@
+.fleet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .car-card {
+    width: 250px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .car-brand {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .car-model {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .car-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #008cba;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
