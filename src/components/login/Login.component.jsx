@@ -18,13 +18,14 @@ export default function LoginFormComponent() {
       setMsgSuccess("Logged correctly!");
       setMsgError("");
     } catch (error) {
+      console.log(error);
       setMsgSuccess("");
       setMsgError(error.message);
     }
   }
 
   if (user) {
-    navigate("/home", { replace: true });
+    navigate("/home", { replace: false });
     return null;
   } else {
     return (

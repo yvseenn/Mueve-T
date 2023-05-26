@@ -1,6 +1,5 @@
-import SignupForm from '../../components/register/signup.components';
 import './Signup.scss';
-
+import SignupForm from '../../components/register/signup.components';
 const SignupPage = () => {
   return (
     <div className='register'>SignupPage
