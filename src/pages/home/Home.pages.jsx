@@ -1,5 +1,9 @@
+
 import "./Home.css"
 import React from 'react'
+
+import "./Home.scss"
+
 import fondoCoche from '../../assets/fotos/fondo_coche.jpeg'
 import buenosDias from '../../assets/fotos/pexels-valeria-boltneva-16677734.jpeg'
 

@@ -116,7 +116,6 @@
 // $font: 'Poppins', sans-serif;
 // $move: all 0.3s ease-in;
 
-
 // * {
 //     box-sizing:border-box;
 
@@ -129,6 +128,16 @@
 //   display:flex;
 //   align-items:center;
 // }
+
+body {
+  font-size:15px;
+  // background-color:$darkgray;
+  // color:$lightgray;
+  font-family:$font;
+  display:flex;
+  align-items:center;
+}
+
 
 // a {
 //   color:$lightgray;

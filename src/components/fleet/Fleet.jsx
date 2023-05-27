@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { VehicleContext } from '../../context/Users.context';
 import { useContext } from 'react';
-import CarDetails from './Car';
 import "./Fleet.css"
 import { Link } from 'react-router-dom';
 
