@@ -3,10 +3,16 @@ import "./Nav.scss"
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import { VehicleContext } from '../../context/Users.context'
+import { useNavigate } from 'react-router-dom'
 
 function Nav () {
     const {user, logOut} = useContext(VehicleContext)
     const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate ()
+    function tryLogout() {
+        logOut()
+        navigate("/", {replace: true})
+    }
     return(
         <div className='navbar'>
             <div className="nav_logo">LOGOTIPO</div>
@@ -31,11 +37,11 @@ function Nav () {
             {
                 user?  ""  : <Link className='link' to="/signup">✏️ REGISTER</Link>
             }
-            
-            <Link className='link' to="/idiomas">🌐 IDIOMAS</Link>
-
+              {
+               user?   <Link className='link' to="/crearvehiculo"> CREAR VEHICULO</Link>: ""
+            }
             {
-                user?<button className='link' onClick={logOut}> Logout</button>: ""
+                user?<button className='link' onClick={tryLogout}> Logout</button>: ""
             }
 
             

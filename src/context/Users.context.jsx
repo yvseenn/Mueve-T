@@ -101,6 +101,18 @@ export const VehicleContextProvider = ({ children }) => {
     setFleet(fleet.filter(x=>x._id!== id))
 }
 
+async function updateVehicle(id, updatedData) {
+  await axios.patch(BASEURL + `/fleet/${id}?token=${token}`, updatedData);
+  setFleet((prevFleet) => {
+    return prevFleet.map((vehicle) => {
+      if (vehicle._id === id) {
+        return { ...vehicle, ...updatedData };
+      }
+      return vehicle;
+    });
+  });
+}
+
     //   useEffect(() => {
     //   async function getVehicleByID(id) {
     //     const res = await axios.get(BASEURL + `/fleet/${id}`);
@@ -160,6 +172,7 @@ export const VehicleContextProvider = ({ children }) => {
         logOut,
         updateUser,
         deleteVehicle,
+        updateVehicle,
         fleet,
         rental,
         // rentalID,

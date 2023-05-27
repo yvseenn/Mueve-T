@@ -2,7 +2,7 @@ import  { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 import { VehicleContext } from '../../context/Users.context';
-
+import './car.scss';
 const CarDetails = () => {
 
     const {deleteVehicle,user} = useContext(VehicleContext)
@@ -43,7 +43,7 @@ const CarDetails = () => {
 
   return (
     <div>
-<figure>
+<figure className='contenedor_car'>
           <h2>Car Details</h2>
           <p>Car brand: {carDetails.brand}</p>
           <p>Car model: {carDetails.model}</p>

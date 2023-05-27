@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { VehicleContext } from '../../context/Users.context';
 import { useContext } from 'react';
 import CarDetails from './Car';
+import CarEdit from './Car';
 import "./Fleet.css"
 import { Link } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const Fleet = () => {
           <h3 className="car-model">{car.model}</h3>
           <img className="car-image" src={car.image} alt={car.model} />
           <Link to={`/fleet/${car._id}`}>Show Details</Link>
+          {/* <Link to={`/fleet/${car._id}`}>Edit Details</Link> */}
         </div>
       ))}
     </div>
