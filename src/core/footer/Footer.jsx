@@ -1,7 +1,7 @@
 // Footer.jsx
 
 import Chatbot from "./Chatbot.footer";
-import "./Footer.scss";
+import "./Footer.css";
 import { AiFillFacebook } from "react-icons/ai";
 import { IoLogoTwitter } from "react-icons/io";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -11,8 +11,13 @@ import { FcAutomotive } from "react-icons/fc";
 
 const Footer = () => {
   return (
-    <div>
+
+    <div className="total_footer">
       
+
+    <div>
+      <Chatbot/>
+
       <div className="footer-container">
 
       <div className="social-media">
@@ -64,6 +69,7 @@ const Footer = () => {
           <p>Teléfono: 658-445-476</p>
           <p>Email: info@mueve-t.com</p>
         </div>
+        <div></div>
 
         <div className="divisor"></div>
 
