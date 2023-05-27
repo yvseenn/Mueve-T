@@ -1,92 +1,132 @@
-import  { useState, useEffect } from "react";
-import axios from "axios";
+import  { useState, useEffect } from 'react';
+import axios from 'axios';
+import "./ReservationForm.css"
 
-const ReservationForm = ({ carDetails }) => {
+const ReservationForm = () => {
   const [reservationData, setReservationData] = useState({
-    name: "",
-    email: "",
-    sDate: "",
-    fDate: "",
-    rentPrice: carDetails?.rentPrice || 0,
-    carId: carDetails?.id || "",
+    client: '',
+    car: '',
+    sDate: '',
+    fDate: '',
+    rentPrice: '',
+    finalized: false,
   });
 
+  const [cars, setCars] = useState([]);
+
   useEffect(() => {
-    setReservationData((prevData) => ({
-      ...prevData,
-      rentPrice: carDetails?.rentPrice || "",
-      carId: carDetails?.id || "",
-    }));
-  }, [carDetails]);
+    const fetchCars = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/rental");
+        setCars(response.data);
+      } catch (error) {
+        console.error('Error fetching cars:', error);
+      }
+    };
 
-  const handleChange = (e) => {
-    setReservationData({
-      ...reservationData,
-      [e.target.name]: e.target.value,
-    });
-  };
+    fetchCars();
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/rental", reservationData);
-      console.log(res.data);
+      await axios.post("http://localhost:8000/rental", reservationData);
+
+      setReservationData({
+        client: '',
+        car: '',
+        sDate: '',
+        fDate: '',
+        rentPrice: '',
+        finalized: false,
+      });
+      alert('Reservation created successfully!');
     } catch (error) {
-      console.error(error);
+      console.error('Error creating reservation:', error);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setReservationData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCarSelect = (event) => {
+    const selectedCarId = event.target.value;
+    const selectedCar = cars.find((car) => car._id === selectedCarId);
+    if (selectedCar) {
+      setReservationData((prevData) => ({
+        ...prevData,
+        car: selectedCarId,
+        rentPrice: selectedCar.rentPrice,
+      }));
     }
   };
 
   return (
-    <div>
-      <h2>Reservation Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={reservationData.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={reservationData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="sDate">Start Date:</label>
-          <input
-            type="date"
-            id="sDate"
-            name="sDate"
-            value={reservationData.sDate}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="fDate">End Date:</label>
-          <input
-            type="date"
-            id="fDate"
-            name="fDate"
-            value={reservationData.fDate}
-            onChange={handleChange}
-          />
-          {reservationData.rentPrice !== "" && (
-            <p>Rent Price: ${reservationData.rentPrice}</p>
-          )}
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className='form-container'>
+      <label>
+        Client:
+        <input
+          type="text"
+          name="client"
+          value={reservationData.client}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+
+      <label>
+        Car:
+        <select name="car" value={reservationData.car} onChange={handleCarSelect}>
+          <option value="">Select a car</option>
+          {cars.length > 0 &&
+            cars.map((car) => (
+              <option key={car._id} value={car._id}>
+                {car.brand}
+              </option>
+            ))}
+        </select>
+      </label>
+      <br />
+
+      <label>
+        Start Date:
+        <input
+          type="date"
+          name="sDate"
+          value={reservationData.sDate}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+
+      <label>
+        End Date:
+        <input
+          type="date"
+          name="fDate"
+          value={reservationData.fDate}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+
+      <label>
+        Rent Price:
+        <input
+          type="number"
+          name="rentPrice"
+          value={reservationData.rentPrice}
+          onChange={handleChange}
+          disabled
+        />
+      </label>
+      <br />
+
+      <button type="submit">Create Reservation</button>
+    </form>
   );
 };
 

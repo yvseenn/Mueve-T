@@ -50,7 +50,7 @@ const CarDetails = () => {
           <p>Car model: {carDetails.model}</p>
           <p>Year: {carDetails.year}</p>
           <p>Price: {carDetails.rentPrice} €</p>
-          <ReservationForm carDetails={carDetails.id} /> 
+          <ReservationForm carDetails={carDetails} user={user} /> 
           {user && user.role === "admin" && (
             <button className="delete-button" onClick={tryDeleteCoche}>
               Delete
