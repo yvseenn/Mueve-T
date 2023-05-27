@@ -12,7 +12,7 @@ import { FcAutomotive } from "react-icons/fc";
 const Footer = () => {
   return (
     <div>
-      
+      <Chatbot/>
       <div className="footer-container">
 
       <div className="social-media">
