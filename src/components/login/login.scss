@@ -1,67 +1,52 @@
-.card {
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    margin: 0 auto;}
-
-.email,
-.pwd,
-.msg1,
-.msg2,
-.button,
-.small {
+.container_login{
   display: flex;
-  justify-content: center;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+  height: 75vh;
+}
+
+.form_login{
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
   align-items: center;
-  margin-bottom: 10px;
+  align-content: center;
+  // border: 1px solid black;
+  border-radius: 12px;
+  width: 30%;
+  margin-top: -10%;
+  padding-bottom: 3%;
+  gap: 4px;
+  background-color: rgb(190, 206, 235);
 }
 
-input {
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-
-  &:focus {
-    outline: none;
-    border-color: #4caf50;
-  }
+.card{
+  margin-top: 10%;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
 }
 
-.small {
-  font-size: 14px;
+.input_login{
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 30px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #45a049;
-  }
+input{
+  height: 100%;
+  width: 100%;
+  
 }
 
-a {
-  color: #4caf50;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.msg1 small {
-  color: red;
-}
-
-.msg2 small {
-  color: green;
+.small{
+  font-size: 18px;
 }

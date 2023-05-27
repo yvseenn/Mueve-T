@@ -290,17 +290,53 @@
 //   transform:translateX(-100%) rotateY(-180deg);
 // }
 .container_signup{
-
+display: flex;
+flex-flow: column nowrap;
+gap: 20px;
+justify-content: space-around;
+align-items: center;
+align-content: center;
 }
 
 .formulario_signup{
- 
+ display: flex;
+ flex-flow: wrap column;
+ justify-content: space-around;
+ align-items: start;
+ align-content: start;
+ gap: 20px;
 }
 
 
 .form_input{
   display:flex;
   flex-flow: wrap column;
-  gap: 3%;
+  // gap: 10%;
 }
   
+.button{
+  margin-top: 10%;
+}
+
+@media (max-width: 768px) {
+  .formulario_signup{
+    // padding-top: -50%;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    align-items: start;
+    align-content: start;
+    gap: 10px;
+    font-size: 14px;
+
+   }
+
+   .container_signup{
+    // margin-top: -5%;
+   }
+
+   .input_signup{
+    height: 50%;
+   }
+   
+}

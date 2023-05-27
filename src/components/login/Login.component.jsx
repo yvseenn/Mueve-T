@@ -29,48 +29,54 @@ export default function LoginFormComponent() {
     return null;
   } else {
     return (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-        className="login"
-      >
-        <div className="card">
-          <div className="email">
-            <input
-              value={mail}
-              onChange={(e) => setMail(e.target.value)}
-              type="email"
-              placeholder="email"
-            />
+      <div className="container_login">
+        <form
+          className="form_login"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <div className="card">
+            <div className="input_login">
+              <input
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+                type="email"
+                placeholder="email"
+              />
+            </div>
+            <div className="input_login">
+              <input
+                value={pwd}
+                onChange={(e) => setPwd(e.target.value)}
+                type="password"
+                placeholder="contraseña"
+              />
+            </div>
+            <div className="msg1">
+              {msgError ? (
+                <small style={{ color: "red" }}>{msgError}</small>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="msg2">
+              {msgSuccess ? (
+                <small style={{ color: "green" }}>{msgSuccess}</small>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="button">
+              <button onClick={tryToLogin}>login</button>
+            </div>
+            <small className="small">
+              Todavía no estás registrado?{" "}
+              <Link className="link_login" to="/signup">Regístrate aquí</Link>
+            </small>
           </div>
-          <div className="pwd">
-            <input
-              value={pwd}
-              onChange={(e) => setPwd(e.target.value)}
-              type="password"
-              placeholder="contraseña"
-            />
-          </div>
-          <div className="msg1">
-            {msgError ? <small style={{ color: "red" }}>{msgError}</small> : ""}
-          </div>
-          <div className="msg2">
-            {msgSuccess ? (
-              <small style={{ color: "green" }}>{msgSuccess}</small>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="button">
-            <button onClick={tryToLogin}>login</button>
-          </div>
-          <small className="small">
-            Todavía no estás registrado?{" "}
-            <Link to="/signup">Regístrate aquí</Link>
-          </small>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }
