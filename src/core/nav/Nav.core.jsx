@@ -21,7 +21,7 @@ function Nav () {
             <Link className='link' to="/fleet">🚗 FLOTA DE COCHES</Link>
 
             {
-                user? <Link className='link' to="/gestion">📅 GESTIONAR RESERVA</Link>: ""
+                user? <Link className='link' to="/rental">📅 GESTIONAR RESERVA</Link>: ""
             }
 
            
