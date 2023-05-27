@@ -24,7 +24,7 @@ export default function SignupForm() {
       <form className="formulario_signup" onSubmit={handleSubmit(onSubmit)}>
         <div className="form_input">
           <label htmlFor="name">Name</label>
-          <input
+          <input className="input_signup"
             type="text"
             id="name"
             {...register("name", { required: true })}
@@ -95,8 +95,11 @@ export default function SignupForm() {
             {...register("direction", { required: true })}
           />
         </div>
-        <button type="submit">Registrarse</button>
+        
       </form>
+      <div>
+      <button className="button" type="submit">Registrarse</button>
+      </div>
     </div>
   );
 }
