@@ -1,3 +1,16 @@
+
+.car-details-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .fleet {
     display: flex;
     flex-wrap: wrap;
@@ -10,6 +23,8 @@
     background-color: #f1f1f1;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+
   }
   
   .car-brand {

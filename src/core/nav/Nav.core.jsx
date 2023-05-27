@@ -32,7 +32,7 @@ function Nav () {
                 user?  ""  : <Link className='link' to="/signup">✏️ REGISTER</Link>
             }
             
-            <Link className='link' to="/idiomas">🌐 IDIOMAS</Link>
+            <Link className='link' to="/rental">🌐 Reservation</Link>
 
             {
                 user?<button className='link' onClick={logOut}> Logout</button>: ""

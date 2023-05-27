@@ -1,7 +1,7 @@
 // Footer.jsx
 
 import Chatbot from "./Chatbot.footer";
-import "./Footer.scss";
+import "./Footer.css";
 import { AiFillFacebook } from "react-icons/ai";
 import { IoLogoTwitter } from "react-icons/io";
 import { AiFillLinkedin } from "react-icons/ai";

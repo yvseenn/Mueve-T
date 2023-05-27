@@ -1,5 +1,4 @@
 import "./Home.scss"
-import React from 'react'
 import fondoCoche from '../../assets/fotos/fondo_coche.jpeg'
 import fotoPortada from '../../assets/fotos/ferrariRojoFrente.jpeg'
 
