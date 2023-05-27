@@ -1,4 +1,8 @@
-
+.total_footer{
+  background-color: rgb(27, 36, 53);
+  margin-bottom: 0; 
+  padding: 2%;
+}
 
 .footer-container {
     background-color: rgb(27, 36, 53);
@@ -15,37 +19,31 @@
    
   }
     .contact-info {
-      // background-color: white;
+    
       display: flex;
       flex-flow: wrap column;
       justify-content: space-around;
       align-items: center;
+      text-align: center;
       gap: 7px;
-    // margin-bottom: 20px;
-    width: 270px;
-    margin-left: -180px;
+    width: 10%;
+    margin-left: -7%;
   }
 
   .company_info {
     display: flex;
     flex-flow:  wrap row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
+    text-align: center;
     color: white;
-    width: 500px;
-  //   padding-top: 20px;
-  //   padding-bottom: 40px;
-  //   // background-color: yellow;
-  //   // margin-bottom: 20px;
-  //   padding-left: 500px;
-  //   padding-right: 500px;
+    width: 30%;
    }
   
   .social-media {
-    // background-color: blue;
+  
     color: white;
-    // margin-bottom: 20px;
     display: flex;
     flex-flow: wrap column;
     justify-content: space-between;
@@ -61,9 +59,6 @@
     gap: 20px;
   }
   
-  // .social-media li {
-  //   margin-right: 10px;
-  // }
   
   .final_copy {
     background-color: rgb(27, 36, 53);
@@ -73,7 +68,6 @@
     align-items: center;
     align-content: center;
     gap: 10px;
-    // padding-top: 40px;
     font-size: 11px;
   }
 
@@ -84,8 +78,6 @@
     align-items: center;
     color: white;
     gap: 8px;
-
-    // background-color: aqua;
   }
   
   .links_copy{
@@ -110,4 +102,53 @@
     /* Add your chatbot styles here */
   }
   
+  @media (max-width: 768px){
+    *{
+    overflow-x: hidden;
+    }
+    
+    .footer-container {
+      background-color: rgb(27, 36, 53);
+      padding: 10px;
+      display: flex;
+      flex-flow: wrap column;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      gap: 10px;
+      font-size: 14px;
+      color: white;
+      width: 100%;
+     
+    }
+
+    .divisor{
+      border: 0.5px solid rgb(87, 86, 86);
+      height: 0px;
+    }
+
+    .company_info p{
+      display: none;
+    }
+
+    .company_info h3{
+      display: none;
+    }
+
+
+
+
+    .contact-info {
+    
+      display: flex;
+      flex-flow: wrap column;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      gap: 7px;
+      width: 100%;
+      height: 20%;
+      margin-left: -7%;
+    }
+  }
   

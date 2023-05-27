@@ -20,7 +20,7 @@ function Nav () {
 
            
             {
-                user?  ""  : <Link className='link_login' to="/login">LOGIN</Link>
+                user?  ""  : <Link className='link_login' to="/login">📚 LOGIN</Link>
             }
            
 
@@ -48,6 +48,35 @@ function Nav () {
             </div>
         </div>
     )
+
+    // Agrega este código JavaScript al final de tu archivo
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.querySelector(".nav_toggle");
+    const navItem = document.querySelector(".nav_item");
+  
+    menuToggle.addEventListener("click", function() {
+      navItem.classList.toggle("open");
+    });
+  
+    const navLinks = document.querySelectorAll(".nav_item a");
+    navLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        navItem.classList.remove("open");
+      });
+    });
+  
+    // Agrega esta función para comprimir el menú hamburguesa
+    function compressMenu() {
+      navItem.classList.remove("open");
+    }
+  
+    // Agrega esta línea para llamar a la función compressMenu() cuando se haga clic en cualquier elemento del menú
+    navLinks.forEach(function(link) {
+      link.addEventListener("click", compressMenu);
+    });
+  });
+  
 }
 
 export default Nav
