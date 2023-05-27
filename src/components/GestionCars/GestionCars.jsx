@@ -1,12 +1,18 @@
-import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router';
 
 const Form = () => {
+  const navigate = useNavigate();
   const initial_state = {
     brand: "",
     image: "",
     model: "",
+    licensePlate: '',
+    condition: '',
+    purchasePrice: '',
+    rentPrice: '',
+    year: '',
   };
 
   const [state, setState] = useState(initial_state);
@@ -35,15 +41,17 @@ const Form = () => {
         };
     
         postData();
-      }, [state]);
+      }, [state, navigate]);
     
       const submitForm = async (event) => {
         event.preventDefault();
          await axios.post("http://localhost:8000/fleet", state);
         setState(initial_state);
+        alert('Coche creado exitosamente');
+        navigate('/fleet', { replace: true });
       };
     
-      const handleInput = (ev) => {
+      const handleInput = async (ev) => {
         const { id, value } = ev.target;
         setState({ ...state, [id]: value });
       };
@@ -107,7 +115,7 @@ const Form = () => {
               value={state.year}
               onChange={handleInput}
             />
-            <button type="submit">Create Car</button>
+            <button type="submit">Crear Coche</button>
           </form>
           <figure>
             <h3>{state.brand}</h3>

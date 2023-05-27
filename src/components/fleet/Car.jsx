@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import { VehicleContext } from "../../context/Users.context";
 import "./Car.css";
 import ReservationForm from "../rentalForm/Rental.component";
-
+import './car.scss';
 const CarDetails = () => {
   const { deleteVehicle, user } = useContext(VehicleContext);
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const CarDetails = () => {
   return (
     <div className="car-details-container">
       <div className="container">
-        <figure>
+        <figure className='contenedor_car'>
           <h2>Car Details</h2>
           <p>Car brand: {carDetails.brand}</p>
           <img src={carDetails.image} alt={carDetails.name} />

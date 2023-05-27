@@ -4,7 +4,7 @@ import Form from '../../components/GestionCars/GestionCars';
  const Gestion = () => {
   return (
     <div>
-       <Form></Form>
+       
     </div>
   )
 }

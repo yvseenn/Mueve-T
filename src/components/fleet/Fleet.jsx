@@ -15,6 +15,7 @@ const Fleet = () => {
           <h3 className="car-model">{car.model}</h3>
           <img className="car-image" src={car.image} alt={car.model} />
           <Link to={`/fleet/${car._id}`}>Show Details</Link>
+          {/* <Link to={`/fleet/${car._id}`}>Edit Details</Link> */}
         </div>
         
       ))}

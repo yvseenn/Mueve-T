@@ -14,6 +14,7 @@ import AreaPrivadaPage from "./pages/AreaPrivada.page";
 import Gestion from "./pages/gestion/Gestion";
 import CarPage from "./pages/carDetails/CarPage";
 import RentaForm from "./components/rentalForm/Rental.component";
+import CrearVehiculo from "./pages/crearvehiculo/CrearVehiculo";
 
 
 
@@ -32,7 +33,7 @@ function App() {
         <Route path='/areaprivada' element={user?<AreaPrivadaPage></AreaPrivadaPage>:<Navigate to="/login" replace></Navigate>} ></Route>
         <Route path='/fleet' element={<FleetPages/>} >  </Route>
         <Route path='/fleet/:id' element={<CarPage/>} >  </Route>
-        <Route path='/rental' element={<RentaForm></RentaForm>} ></Route>
+        <Route path='/rental' element={<RentaForm></RentaForm>} ></Route>        <Route path='/crearvehiculo' element={<CrearVehiculo/>}></Route>
         <Route path='/gestion' element={user?<Gestion/>:<Navigate to="/login" replace></Navigate>} >  </Route>
       </Routes>
         <Footer />

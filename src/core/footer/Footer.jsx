@@ -55,26 +55,15 @@ const Footer = () => {
             notoriedad y llegar a nuevos públicos.
           </p>
         </div>
-
-   
-
-         
-
         <div className="divisor"></div>
-
         <div className="chatbot-container">{/* <Chatbot /> */}</div>
-
         <div className="contact-info">
           <h3>Contacto</h3>
           <p>Teléfono: 658-445-476</p>
           <p>Email: info@mueve-t.com</p>
         </div>
         <div></div>
-
         <div className="divisor"></div>
-
-
-
         <div className="final_copy">
           <div className="letras_final_copy">
             <i role="copyright"></i> 2023{" "}
@@ -108,7 +97,8 @@ const Footer = () => {
       
       
     </div>
+    </div>
   );
-};
+}
 
-export default Footer;
+export default Footer
