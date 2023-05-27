@@ -105,18 +105,29 @@
 //     font-size: 14px;
 //   }
 // }
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+// @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
 
-$darkgray:#1F2029;
-$yellow: #FFEBA7;
-$lightgray: #B5B5BC;
-$darkblue: #102770;
-$radius:5px;
-$font: 'Poppins', sans-serif;
-$move: all 0.3s ease-in;
+// $darkgray:#1F2029;
+// $yellow: #FFEBA7;
+// $lightgray: #B5B5BC;
+// $darkblue: #102770;
+// $radius:5px;
+// $font: 'Poppins', sans-serif;
+// $move: all 0.3s ease-in;
 
+// * {
+//     box-sizing:border-box;
 
+// }
+// body {
+//   font-size:15px;
+//   // background-color:$darkgray;
+//   // color:$lightgray;
+//   font-family:$font;
+//   display:flex;
+//   align-items:center;
+// }
 
 body {
   font-size:15px;
@@ -127,163 +138,178 @@ body {
   align-items:center;
 }
 
-a {
-  color:$lightgray;
-  text-decoration:none;
-  &:hover {
-    color:$yellow;
-  }
-}
+
+// a {
+//   color:$lightgray;
+//   text-decoration:none;
+//   &:hover {
+//     color:$yellow;
+//   }
+// }
 
 
 
-.slider {
-  width:55px;
-  position:relative;
-  margin:auto;
-  cursor:pointer;
-  margin-bottom:20px;
-  &__text {
-    font-size:12px;
-    transition: $move;
-    &--signup {
-      position:relative;
-      right:-35px;
-      display:none;   
+// .slider {
+//   width:55px;
+//   position:relative;
+//   margin:auto;
+//   cursor:pointer;
+//   margin-bottom:20px;
+//   &__text {
+//     font-size:12px;
+//     transition: $move;
+//     &--signup {
+//       position:relative;
+//       right:-35px;
+//       display:none;   
 
-    }
-  }
+//     }
+//   }
   
-  &__line {
-    height:15px;
-    width:100%;
-    background-color:$lightgray;
-    border-radius:$radius;
-    position:absolute;
-    bottom:15%;
-    left:10%;
-    z-index:-1;
-  }
+//   &__line {
+//     height:15px;
+//     width:100%;
+//     background-color:$lightgray;
+//     border-radius:$radius;
+//     position:absolute;
+//     bottom:15%;
+//     left:10%;
+//     z-index:-1;
+//   }
   
-  &__circle {
-    width:30px;
-    height:30px;
-    background-color:$yellow;
-    border-radius:50%;
-    transition: $move;
-    &:hover {
-      background-color:$darkblue;
-    }
-  }
+//   &__circle {
+//     width:30px;
+//     height:30px;
+//     background-color:$yellow;
+//     border-radius:50%;
+//     transition: $move;
+//     &:hover {
+//       background-color:$darkblue;
+//     }
+//   }
   
-  &:hover {
-    .slider__circle {
-      cursor:pointer;
-      }
-    } 
-}
+//   &:hover {
+//     .slider__circle {
+//       cursor:pointer;
+//       }
+//     } 
+// }
 
-/*form block*/
+// /*form block*/
 
-.form {
-  height:390px;
-  width:100%;
-  perspective:700px;
-}
+// .form {
+//   height:390px;
+//   width:100%;
+//   perspective:700px;
+// }
 
-.card {
-  height:100%;
-  transition:transform 1s;
-  transform-style:preserve-3d;
-  transform-origin:center right;
-  position:relative;
+// .card {
+//   height:100%;
+//   transition:transform 1s;
+//   transform-style:preserve-3d;
+//   transform-origin:center right;
+//   position:relative;
   
-  &__side {
-    position:absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background: #ffffff url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
-  padding:20px 25px 40px;
-  text-align:center;
-  font-weight:600;  
-  backface-visibility:hidden;
-    &--back {
- transform:rotateY(180deg);
-    }
-  }
+//   &__side {
+//     position:absolute;
+//     top:0;
+//     left:0;
+//     height:100%;
+//     width:100%;
+//     background: #ffffff url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+//   padding:20px 25px 40px;
+//   text-align:center;
+//   font-weight:600;  
+//   backface-visibility:hidden;
+//     &--back {
+//  transform:rotateY(180deg);
+//     }
+//   }
   
-  &__title {
-    font-size:24px;
-    padding-bottom:15px;
-  }
+//   &__title {
+//     font-size:24px;
+//     padding-bottom:15px;
+//   }
   
-  &__field {
-    position:relative;
-  }
+//   &__field {
+//     position:relative;
+//   }
   
-  &__icon {
-    color:$yellow;
-    font-size:20px;
-    position:absolute;
-    top:20px;
-    left:22px;
-  }
+//   &__icon {
+//     color:$yellow;
+//     font-size:20px;
+//     position:absolute;
+//     top:20px;
+//     left:22px;
+//   }
   
-  &__input {
-    width:100%;
-    padding:13px 20px 13px 55px;
-    background-color:$darkgray;
-    color:$lightgray;
-    border:none;
-    border-radius:$radius;
-    margin:5px 0;
-    font-family: $font;
-    font-weight:600;
-    font-size:15px;
-  }
+//   &__input {
+//     width:100%;
+//     padding:13px 20px 13px 55px;
+//     background-color:$darkgray;
+//     color:$lightgray;
+//     border:none;
+//     border-radius:$radius;
+//     margin:5px 0;
+//     font-family: $font;
+//     font-weight:600;
+//     font-size:15px;
+//   }
  
-  &__submit {
-    background-color:$yellow;
-    border:none;
-    margin-top:20px;
-    padding:15px 30px;
-    border-radius:$radius;
-    font-family: $font;
-    font-weight:600;
-    text-transform:uppercase;
-    cursor:pointer;
+//   &__submit {
+//     background-color:$yellow;
+//     border:none;
+//     margin-top:20px;
+//     padding:15px 30px;
+//     border-radius:$radius;
+//     font-family: $font;
+//     font-weight:600;
+//     text-transform:uppercase;
+//     cursor:pointer;
     
-    &:hover {
-      background-color:$darkblue;
-      color:$yellow;
-    }
-  }
+//     &:hover {
+//       background-color:$darkblue;
+//       color:$yellow;
+//     }
+//   }
   
-  &__content {
-    display:block;
-    margin-top:20px;
-  }
+//   &__content {
+//     display:block;
+//     margin-top:20px;
+//   }
+ 
+// }
+
+// .active {
+//   .slider__text--login {
+//       display:none;
+//   }
+  
+//   .slider__text--signup {
+//       display:block;
+//   }
+  
+//   .slider__circle {
+//    transform: translateX(40px);
+// }
+
+// }
+
+// .signUp {
+//   transform:translateX(-100%) rotateY(-180deg);
+// }
+.container_signup{
+
+}
+
+.formulario_signup{
  
 }
 
-.active {
-  .slider__text--login {
-      display:none;
-  }
+
+.form_input{
+  display:flex;
+  flex-flow: wrap column;
+  gap: 3%;
+}
   
-  .slider__text--signup {
-      display:block;
-  }
-  
-  .slider__circle {
-   transform: translateX(40px);
-}
-
-}
-
-.signUp {
-  transform:translateX(-100%) rotateY(-180deg);
-}
-
