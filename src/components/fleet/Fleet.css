@@ -1,0 +1,90 @@
+.fleet {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 20px;
+    /* margin-top: 6%; */
+    object-fit: cover;
+    margin: 3%;
+  }
+  
+  .car-card {
+    width: 25%;
+    height: 60vh;
+    padding: 2%;
+    margin-top: 4%;
+    border-radius: 2%;
+    background-color: #edeaea;
+    /* border-radius: 4px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
+  }
+
+  .car-card:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+    background-color: rgb(27, 36, 53);
+    color: white;
+
+  }
+
+  @media (max-width: 768px){
+    /* *{
+      overflow: hidden;
+    } */
+    .fleet {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      /* gap: 20px; */
+      /* object-fit: scale-down; */
+      /* overflow: hidden; */
+      gap: 30px
+    }
+    
+    .car-card{
+      width: fit-content;
+      height: 40vh;
+      transform-box: content-box;
+      overflow: hidden;
+      
+    }
+
+    .car-card:hover{
+      width: fit-content;
+      height: 40vh;
+      transform-box: content-box;
+      overflow: hidden;
+    }
+  }
+  
+  .car-brand {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .car-model {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .car-image {
+    object-fit: cover;
+    width: 100%;
+    height: 70%;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #008cba;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }  
+
+  .separador{
+    height: 50%;
+  }
+  

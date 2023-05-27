@@ -1,38 +1,38 @@
-import { useAuth } from "../../context/Users.context";
+import "./Home.css"
+import React from 'react'
+import fondoCoche from '../../assets/fotos/fondo_coche.jpeg'
+import buenosDias from '../../assets/fotos/pexels-valeria-boltneva-16677734.jpeg'
 
-function HomePage() {
-  const { user, signup, login, logout } = useAuth();
 
-  // Example usage
-  const handleSignup = () => {
-    const userData = { username: "exampleUser", password: "examplePassword" };
-    signup(userData);
-  };
 
-  const handleLogin = () => {
-    const userData = { username: "exampleUser", password: "examplePassword" };
-    login(userData);
-  };
-
-  const handleLogout = () => {
-    logout();
-  };
-
+const Home = () => {
   return (
-    <div>
-      {user ? (
-        <div>
-          <h2>Welcome, {user.username}!</h2>
-          <button onClick={handleLogout}>Logout</button>
+    <div className="Home">
+
+      <img className="foto_portada" src={fondoCoche} alt="hola"/>
+
+      <div className="portada_home">
+
+        <div className="cartas_home">
+          <p className="p_cartas_home">¿A QUE NOS DEDICAMOS?</p>
+          <div className="carta">
+            <p>buenos dias</p>
+            <img className="foto" src={buenosDias} alt="buenos dias" />
+          </div>
+
+          <div className="carta">
+
+          </div>
+
+          <div className="carta">
+
+          </div>
+
         </div>
-      ) : (
-        <div>
-          <button onClick={handleSignup}>Sign Up</button>
-          <button onClick={handleLogin}>Log In</button>
-        </div>
-      )}
+      
+      </div>      
     </div>
-  );
+  )
 }
 
-export default HomePage;
+export default Home

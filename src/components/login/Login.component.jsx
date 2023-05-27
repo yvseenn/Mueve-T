@@ -1,99 +1,82 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { VehicleContext } from "../../context/Users.context";
+import "./login.scss";
 
-const LoginForm = ({ onLogin }) => {
-  const [inputValue, setInputValue] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = inputValue;
+export default function LoginFormComponent() {
+  const [mail, setMail] = useState("pereira@mail.com");
+  const [pwd, setPwd] = useState("1234567");
+  const [msgSuccess, setMsgSuccess] = useState("");
+  const [msgError, setMsgError] = useState("");
 
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "http://localhost:4000/login",
-        {
-          ...inputValue,
-        },
-        { withCredentials: true }
-      );
-      const { success, message } = data;
-      if (success) {
-        onLogin(message);
-      } else {
-        toast.error(message, {
-          position: "bottom-left",
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    setInputValue({
-      email: "",
-      password: "",
-    });
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Enter your email"
-          onChange={handleOnChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="Enter your password"
-          onChange={handleOnChange}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
-
-const Login = () => {
+  const { login, user } = useContext(VehicleContext);
   const navigate = useNavigate();
 
-  const handleLogin = (message) => {
-    toast.success(message, {
-      position: "bottom-left",
-    });
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
-  };
+  async function tryToLogin() {
+    try {
+      await login(mail, pwd);
+      setMsgSuccess("Logged correctly!");
+      setMsgError("");
+    } catch (error) {
+      console.log(error);
+      setMsgSuccess("");
+      setMsgError(error.message);
+    }
+  }
 
-  return (
-    <div className="form_container">
-      <h2>Login Account</h2>
-      <LoginForm onLogin={handleLogin} />
-      <span>
-        Already have an account? <Link to={"/signup"}>Signup</Link>
-      </span>
-      <ToastContainer />
-    </div>
-  );
-};
-
-export default Login;
+  if (user) {
+    navigate("/areaprivada", { replace: true });
+    return null;
+  } else {
+    return (
+      <div className="container_login">
+        <form
+          className="form_login"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <div className="card">
+            <div className="input_login">
+              <input
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+                type="email"
+                placeholder="email"
+              />
+            </div>
+            <div className="input_login">
+              <input
+                value={pwd}
+                onChange={(e) => setPwd(e.target.value)}
+                type="password"
+                placeholder="contraseña"
+              />
+            </div>
+            <div className="msg1">
+              {msgError ? (
+                <small style={{ color: "red" }}>{msgError}</small>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="msg2">
+              {msgSuccess ? (
+                <small style={{ color: "green" }}>{msgSuccess}</small>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="button">
+              <button onClick={tryToLogin}>login</button>
+            </div>
+            <small className="small">
+              Todavía no estás registrado?{" "}
+              <Link className="link_login" to="/signup">Regístrate aquí</Link>
+            </small>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
