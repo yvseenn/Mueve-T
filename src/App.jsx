@@ -10,12 +10,13 @@ import FleetPages from "./pages/fleet/FleetPages";
 import AreaPrivadaPage from "./pages/AreaPrivada.page";
 import Gestion from "./pages/gestion/Gestion";
 import CarPage from "./pages/carDetails/CarPage";
-// import RentaForm from "./components/rentalForm/Rental.component";
+import ReservationForm from "./components/rentalForm/Rental.component";
 import CrearVehiculo from "./pages/crearvehiculo/CrearVehiculo";
 import Chatbot from "./core/footer/Chatbot.footer";
 
 function App() {
   const { user } = useContext(VehicleContext);
+  const token = user ? user.token : null; // Retrieve the token value from the user object
 
   return (
     <div className="App">
@@ -26,17 +27,17 @@ function App() {
           path="/login"
           element={
             user ? (
-              <Navigate to="/areaprivada" replace></Navigate>
+              <Navigate to="/areaprivada" replace />
             ) : (
-              <LoginPage></LoginPage>
+              <LoginPage />
             )
           }
-        ></Route>
+        />
         <Route
           path="/signup"
           element={
             user ? (
-              <Navigate to="/areaprivada" replace></Navigate>
+              <Navigate to="/areaprivada" replace />
             ) : (
               <SignupPage />
             )
@@ -47,28 +48,29 @@ function App() {
           path="/areaprivada"
           element={
             user ? (
-              <AreaPrivadaPage></AreaPrivadaPage>
+              <AreaPrivadaPage />
             ) : (
-              <Navigate to="/login" replace></Navigate>
+              <Navigate to="/login" replace />
             )
           }
-        ></Route>
-        <Route path="/fleet" element={<FleetPages />}>
-          {" "}
-        </Route>
-        <Route path="/fleet/:id" element={<CarPage />}>
-          {" "}
-        </Route>
-        {/* <Route path="/rental" element={<RentaForm></RentaForm>}></Route>{" "} */}
-        <Route path="/crearvehiculo" element={<CrearVehiculo />}></Route>
+        />
+        <Route path="/fleet" element={<FleetPages />} />
+        <Route path="/fleet/:id" element={<CarPage />} />
+        <Route
+          path="/rental"
+          element={token ? <ReservationForm token={token} /> : null}
+        />
+        <Route path="/crearvehiculo" element={<CrearVehiculo />} />
         <Route
           path="/gestion"
           element={
-            user ? <Gestion /> : <Navigate to="/login" replace></Navigate>
+            user ? (
+              <Gestion />
+            ) : (
+              <Navigate to="/login" replace />
+            )
           }
-        >
-          {" "}
-        </Route>
+        />
       </Routes>
       <Footer />
     </div>
