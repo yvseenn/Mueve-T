@@ -1,12 +1,10 @@
-
+/* 
 .total_footer{
-  background-color: rgb(27, 36, 53);
   margin-bottom: 0; 
   padding: 2%;
 }
 
 .footer-container {
-    background-color: rgb(27, 36, 53);
     padding: 10px;
     display: flex;
     flex-flow: wrap row;
@@ -62,7 +60,6 @@
   
   
   .final_copy {
-    background-color: rgb(27, 36, 53);
     display: flex;
     flex-flow: wrap column;
     justify-content: space-around;
@@ -98,10 +95,7 @@
     border: 0.5px solid rgb(87, 86, 86);
     height: 2vw;
   }
-  /* Chatbot section */
-  .chatbot-container {
-    /* Add your chatbot styles here */
-  }
+
   
   @media (max-width: 768px){
     *{
@@ -109,7 +103,6 @@
     }
     
     .footer-container {
-      background-color: rgb(27, 36, 53);
       padding: 10px;
       display: flex;
       flex-flow: wrap column;
@@ -155,7 +148,6 @@
   
 
 .footer-container {
-  background-color: rgb(27, 36, 53);
   padding: 10px;
   display: flex;
   flex-flow: wrap row;
@@ -216,7 +208,6 @@
 }
 
 .final_copy {
-  background-color: rgb(27, 36, 53);
   display: flex;
   flex-flow: wrap column;
   justify-content: space-around;
@@ -253,9 +244,111 @@
 .divisor {
   border: 0.5px solid rgb(87, 86, 86);
   height: 2vw;
-}
-/* Chatbot section */
-.chatbot-container {
-  /* Add your chatbot styles here */
+} */
+
+/* Footer.css */
+
+.total_footer {
+  /* Add your styles for the total_footer container here */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.footer-container {
+  /* Add your styles for the footer container here */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.social-media {
+  /* Add your styles for the social media section here */
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.ul_footer {
+  /* Add your styles for the social media icons list here */
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.divisor {
+  /* Add your styles for the dividers between sections here */
+  flex-basis: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+.company_info {
+  /* Add your styles for the company information section here */
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.chatbot-container {
+  /* Add your styles for the chatbot container here */
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.contact-info {
+  /* Add your styles for the contact information section here */
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.final_copy {
+  /* Add your styles for the final copy section here */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.letras_final_copy {
+  /* Add your styles for the final copy text here */
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.links_copy {
+  /* Add your styles for the links in the final copy section here */
+  display: flex;
+  gap: 10px;
+}
+
+.a_links_copy {
+  /* Add your styles for the links in the final copy section here */
+}
+
+/* Add media queries for screens below 600px */
+@media (max-width: 600px) {
+  .footer-container {
+    /* Update styles for the footer container on smaller screens here */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divisor {
+    /* Update styles for the dividers between sections on smaller screens here */
+    margin: 10px 0;
+  }
+
+  .final_copy {
+    /* Update styles for the final copy section on smaller screens here */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links_copy {
+    /* Update styles for the links in the final copy section on smaller screens here */
+    justify-content: center;
+  }
+}

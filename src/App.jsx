@@ -1,13 +1,11 @@
-import "./App.css";
+import "./App.scss";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./core/footer/Footer";
-import Nav from "./core/nav/Nav.core"
+import NavBar from "./core/nav/Nav.core"
 import LoginPage from "./pages/login/Login.page";
 import { VehicleContext } from "./context/Users.context";
 import { useContext } from "react";
 import SignupPage from "./pages/signup/Signup.page";
-// import { Carrusel } from "./assets/carrusel/carrusel";
-// import  FleetPages from './pages/fleet/FleetPages';
 import Home from "./pages/home/Home.pages";
 import  FleetPages from './pages/fleet/FleetPages';
 import AreaPrivadaPage from "./pages/AreaPrivada.page";
@@ -15,18 +13,18 @@ import Gestion from "./pages/gestion/Gestion";
 import CarPage from "./pages/carDetails/CarPage";
 import RentaForm from "./components/rentalForm/Rental.component";
 import CrearVehiculo from "./pages/crearvehiculo/CrearVehiculo";
-
-
+import Chatbot from "./core/footer/Chatbot.footer";
 
 function App() {
 
   const {user} = useContext(VehicleContext)
   
   return (
+    
     <div className="App">
-    <Nav/>
+    <NavBar sticky="top"/>
+    <Chatbot />
       <Routes>
-        {/* <Route path='/fleet' element={<FleetPages/>} >  </Route> */}
         <Route path='/login' element={user?<Navigate to="/areaprivada" replace></Navigate>:<LoginPage></LoginPage>} ></Route>
         <Route path="/signup" element={user?<Navigate to="/areaprivada" replace></Navigate>:<SignupPage />} />
         <Route path="/" element={<Home />} />
