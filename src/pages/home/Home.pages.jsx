@@ -1,42 +1,32 @@
-
-import "./Home.css"
-import React from 'react'
-
+import Carousel from 'react-bootstrap/Carousel';
 import "./Home.css"
 
-import fondoCoche from '../../assets/fotos/fondo_coche.jpeg'
-import buenosDias from '../../assets/fotos/pexels-valeria-boltneva-16677734.jpeg'
-
-
-
-const Home = () => {
+function HomePage() {
   return (
-    <div className="Home">
-
-      <img className="foto_portada" src={fondoCoche} alt="hola"/>
-
-      <div className="portada_home">
-
-        <div className="cartas_home">
-          <p className="p_cartas_home">¿A QUE NOS DEDICAMOS?</p>
-          <div className="carta">
-            <p>buenos dias</p>
-            <img className="foto" src={buenosDias} alt="buenos dias" />
-          </div>
-
-          <div className="carta">
-
-          </div>
-
-          <div className="carta">
-
-          </div>
-
-        </div>
-      
-      </div>      
-    </div>
-  )
+    <Carousel fade>
+      <Carousel.Item>
+        <img
+          className="block "
+          src="https://res.cloudinary.com/du0eiutui/image/upload/v1685264286/pexels-joshua-k%C3%B6ller-790176_qr1omr.jpg"
+          alt="First slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="block"
+          src="https://res.cloudinary.com/du0eiutui/image/upload/v1685264284/pexels-errin-casano-2356071_oj5qle.jpg"
+          alt="Second slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="block"
+          src="https://res.cloudinary.com/du0eiutui/image/upload/v1685264289/pexels-jose-mueses-1280553_oijyzk.jpg"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+    </Carousel>
+  );
 }
 
-export default Home
+export default HomePage;

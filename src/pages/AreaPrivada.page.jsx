@@ -6,9 +6,8 @@ export default function AreaPrivadaPage(){
     return(
 
         <>
-            <h1>Página Área Privada</h1>
+            <h1>Private Area</h1>
             <main>
-                Body de la pagina privada
                 <EditarUsuario></EditarUsuario>
             </main>
         </>
