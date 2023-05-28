@@ -2,9 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import { VehicleContext } from "../../context/Users.context";
-import "./Car.css";
-import ReservationForm from "../rentalForm/Rental.component";
-import './car.scss';
+
 const CarDetails = () => {
   const { deleteVehicle, user } = useContext(VehicleContext);
   const navigate = useNavigate();

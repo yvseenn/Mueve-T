@@ -21,7 +21,7 @@ function NavBar() {
   }
 
   return (
-    <Navbar bg="dark" variant="light" expand="lg" className="px-4 mx-0">
+    <Navbar bg="light" variant="light" expand="lg" className="px-4 mx-0">
       <Navbar.Brand href="/">LOGOTIPO</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
