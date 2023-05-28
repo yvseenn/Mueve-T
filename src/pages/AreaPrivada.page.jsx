@@ -7,9 +7,7 @@ export default function AreaPrivadaPage(){
 
         <>
             <h1>Private Area</h1>
-            <main>
                 <EditarUsuario></EditarUsuario>
-            </main>
         </>
     )
 }

@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { VehicleContext } from "../../context/Users.context";
-import "./login.scss";
 
 export default function LoginFormComponent() {
   const [mail, setMail] = useState("pereira@mail.com");
@@ -14,9 +13,14 @@ export default function LoginFormComponent() {
 
   async function tryToLogin() {
     try {
-      await login(mail, pwd);
-      setMsgSuccess("Logged correctly!");
-      setMsgError("");
+      const loggedInUser = await login(mail, pwd);
+      if (loggedInUser) {
+        setMsgSuccess("Logged in correctly!");
+        setMsgError("");
+      } else {
+        setMsgSuccess("");
+        setMsgError("User not found in the database");
+      }
     } catch (error) {
       console.log(error);
       setMsgSuccess("");
@@ -29,52 +33,45 @@ export default function LoginFormComponent() {
     return null;
   } else {
     return (
-      <div className="container_login">
+      <div className="container">
         <form
-          className="form_login"
+          className="mt-5 p-4 bg-light rounded shadow-sm"
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
-          <div className="card">
-            <div className="input_login">
-              <input
-                value={mail}
-                onChange={(e) => setMail(e.target.value)}
-                type="email"
-                placeholder="email"
-              />
-            </div>
-            <div className="input_login">
-              <input
-                value={pwd}
-                onChange={(e) => setPwd(e.target.value)}
-                type="password"
-                placeholder="contraseña"
-              />
-            </div>
-            <div className="msg1">
-              {msgError ? (
-                <small style={{ color: "red" }}>{msgError}</small>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="msg2">
-              {msgSuccess ? (
-                <small style={{ color: "green" }}>{msgSuccess}</small>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="button">
-              <button onClick={tryToLogin}>login</button>
-            </div>
-            <small className="small">
-              Todavía no estás registrado?{" "}
-              <Link className="link_login" to="/signup">Regístrate aquí</Link>
-            </small>
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
+              type="email"
+              className="form-control"
+              placeholder="Enter email"
+            />
           </div>
+          <div className="form-group">
+            <label>Password:</label>
+            <input
+              value={pwd}
+              onChange={(e) => setPwd(e.target.value)}
+              type="password"
+              className="form-control"
+              placeholder="Enter password"
+            />
+          </div>
+          <div className="text-danger">{msgError}</div>
+          <div className="text-success">{msgSuccess}</div>
+          <button
+            onClick={tryToLogin}
+            className="btn btn-primary mt-3"
+          >
+            Login
+          </button>
+          <small className="d-block mt-3">
+            ¿Todavía no estás registrado?{" "}
+            <Link to="/signup">Regístrate aquí</Link>
+          </small>
         </form>
       </div>
     );

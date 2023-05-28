@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { VehicleContext } from '../../context/Users.context';
 import { useNavigate } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,10 +9,15 @@ import Button from 'react-bootstrap/Button';
 function NavBar() {
   const { user, logOut } = useContext(VehicleContext);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   function tryLogout() {
-    logOut();
-    navigate('/', { replace: true });
+    setIsLoading(true); 
+    setTimeout(() => {
+      logOut();
+      setIsLoading(false); 
+      navigate('/', { replace: true });
+    }, 2000); 
   }
 
   return (
@@ -61,9 +66,17 @@ function NavBar() {
         <Nav>
           <span className="text-light">{user ? user.name : ''}</span>
           {user && (
-            <Button variant="danger" size='sm' className='mr-2 ml-2' onClick={tryLogout}>
-              Logout
-            </Button>
+            <>
+              {isLoading ? (
+                <Button variant="primary" size='sm' className='mr-2 ml-2' disabled>
+                  Logging out...
+                </Button>
+              ) : (
+                <Button variant="danger" size='sm' className='mr-2 ml-2' onClick={tryLogout}>
+                  Logout
+                </Button>
+              )}
+            </>
           )}
         </Nav>
       </Navbar.Collapse>
