@@ -1,14 +1,11 @@
-import React from 'react';
 import {  MDBFooter,
   MDBContainer,
-  MDBCol,
-  MDBRow,
   MDBIcon,
   MDBBtn } from 'mdb-react-ui-kit';
 
 export default function App() {
   return (
-    <div style={{ minHeight: '100vh', position: 'relative' }}>
+    <div style={{ minHeight: '100vh', width:'100vw', position: 'fixed' }}>
       <div style={{ paddingBottom: '60px' }}>
       </div>
 

@@ -21,7 +21,7 @@ function NavBar() {
   }
 
   return (
-    <Navbar bg="light" variant="light" expand="lg" >
+    <Navbar bg="light" variant="light" expand="lg" className="px-4 mx-0">
       <Navbar.Brand href="/">LOGOTIPO</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -72,7 +72,7 @@ function NavBar() {
                   Logging out...
                 </Button>
               ) : (
-                <Button variant="danger" size='sm' className='mr-2 ml-2' onClick={tryLogout}>
+                <Button variant="dark" size='lg' onClick={tryLogout}>
                   Logout
                 </Button>
               )}
