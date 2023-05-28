@@ -32,9 +32,9 @@ function NavBar() {
           <Nav.Link as={Link} to="/fleet">
             🚗 FLOTA DE COCHES
           </Nav.Link>
-          {user && (
+          {user && user.role === 'admin' && (
             <Nav.Link as={Link} to="/rental">
-              📅 GESTIONAR RESERVA
+              📅 GESTIONAR RESERVAS
             </Nav.Link>
           )}
           {!user && (
@@ -52,16 +52,12 @@ function NavBar() {
               ✏️ REGISTER
             </Nav.Link>
           )}
-          {user && (
+          {user && user.role === 'admin' && (
             <Nav.Link as={Link} to="/crearvehiculo">
               CREAR VEHICULO
             </Nav.Link>
           )}
-          {user && user.role === 'admin' && (
-            <Nav.Link as={Link} to="/AdminDashBoard">
-              Admin Dashboard
-            </Nav.Link>
-          )}
+          
         </Nav>
         <Nav>
           <span className="text-light">{user ? user.name : ''}</span>
