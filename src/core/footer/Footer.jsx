@@ -1,9 +1,13 @@
-import {  MDBFooter,
-  MDBContainer,
-  MDBIcon,
-  MDBBtn } from 'mdb-react-ui-kit';
+import Chatbot from "./Chatbot.footer";
+import "./Footer.css";
+import { AiFillFacebook } from "react-icons/ai";
+import { IoLogoTwitter } from "react-icons/io";
+import { AiFillLinkedin } from "react-icons/ai";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaProcedures } from "react-icons/fa";
+import { FcAutomotive } from "react-icons/fc";
 
-export default function App() {
+const Footer = () => {
   return (
     <div className="total_footer">
       <div className="chatbot_footer">

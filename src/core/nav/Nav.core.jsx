@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import "./Nav.scss"
+import "./Nav.css"
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import { VehicleContext } from '../../context/Users.context'
