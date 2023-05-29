@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import { VehicleContext } from "../../context/Users.context";
-import "./Car.css";
 import ReservationForm from "../rentalForm/Rental.component";
-import './car.scss';
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+
 const CarDetails = () => {
   const { deleteVehicle, user } = useContext(VehicleContext);
   const navigate = useNavigate();
@@ -29,10 +29,10 @@ const CarDetails = () => {
   async function tryDeleteCoche() {
     try {
       await deleteVehicle(id);
-      alert("coche borrado");
+      alert("Coche borrado");
       navigate("/fleet", { replace: true });
     } catch (error) {
-      alert("ha ocurrido un error");
+      alert("Ha ocurrido un error");
     }
   }
 
@@ -43,16 +43,16 @@ const CarDetails = () => {
   return (
     <div className="car-details-container">
       <div className="container">
-        <figure className='contenedor_car'>
+        <figure className="contenedor_car">
           <h2>Car Details</h2>
           <p>Car brand: {carDetails.brand}</p>
           <img src={carDetails.image} alt={carDetails.name} />
           <p>Car model: {carDetails.model}</p>
           <p>Year: {carDetails.year}</p>
           <p>Price: {carDetails.rentPrice} €</p>
-          <ReservationForm carDetails={carDetails} user={user} /> 
+          <ReservationForm carDetails={carDetails}/>
           {user && user.role === "admin" && (
-            <button className="delete-button" onClick={tryDeleteCoche}>
+            <button className="btn btn-danger" onClick={tryDeleteCoche}>
               Delete
             </button>
           )}

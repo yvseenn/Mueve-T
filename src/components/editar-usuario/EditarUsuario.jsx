@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { VehicleContext } from "../../context/Users.context";
-import "./EditarUsuario.css";
+
 export default function EditarUsuarioComponent() {
   const { user, updateUser } = useContext(VehicleContext);
 
@@ -18,28 +18,44 @@ export default function EditarUsuarioComponent() {
   }
 
   return (
-    <div className="card">
-      <div>
-        <label>Nombre:</label>
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          placeholder="Nombre"
-        />
-      </div>
-      <div>
-        <label>Correo electrónico:</label>
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Correo electrónico"
-        />
-      </div>
-
-      <div>
-        <button className="button_editar" onClick={intentarCambiarDatos}>Guardar cambios</button>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Editar Usuario</h5>
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="name" className="form-label">Name</label>
+                  <input
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    id="nombre"
+                    placeholder="Nombre"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="mail" className="form-label">Email</label>
+                  <input
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    id="correo"
+                    placeholder="Correo electrónico"
+                  />
+                </div>
+                <div className="text-center">
+                  <button className="btn btn-primary" onClick={intentarCambiarDatos}>
+                    Guardar cambios
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

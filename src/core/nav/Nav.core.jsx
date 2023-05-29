@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import "./Nav.css"
+import "./Nav.scss"
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import { VehicleContext } from '../../context/Users.context'
 import { useNavigate } from 'react-router-dom'
-
 
 function Nav () {
     const {user, logOut} = useContext(VehicleContext)
@@ -16,7 +15,7 @@ function Nav () {
     }
     return(
         <div className='navbar'>
-            <div className="nav_logo"><img className='foto_logo' src="https://res.cloudinary.com/du0eiutui/image/upload/v1685317635/removal.ai__tmp-6473e754e567f_yitbch.png" alt="" /></div>
+            <div className="nav_logo">LOGOTIPO</div>
             <div className={`nav_item ${isOpen && "open"}`}>
             <Link className='link' to="/">🏠 HOME</Link>
             <Link className='link' to="/fleet">🚗 FLOTA DE COCHES</Link>
@@ -32,7 +31,7 @@ function Nav () {
            
 
             {
-                user? <Link className='link' to="/areaprivada">AREA PRIVADA</Link>: ""
+                user? <Link className='link_area' to="/areaprivada">Area Privada</Link>: ""
             }
            
             {
@@ -42,11 +41,11 @@ function Nav () {
                user?   <Link className='link' to="/crearvehiculo"> CREAR VEHICULO</Link>: ""
             }
             {
-                user?<button className='link_logout' onClick={tryLogout}> LOGOUT</button>: ""
+                user?<button className='link' onClick={tryLogout}> Logout</button>: ""
             }
 
             
-            <span className='email_nav'>{user?user.name:""}</span>
+            <span>{user?user.email:""}</span>
             </div>
             <div className={`nav_toggle ${isOpen && "open"}`} onClick={()=> setIsOpen(!isOpen)}>
                 <span></span>

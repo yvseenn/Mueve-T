@@ -14,9 +14,14 @@ export default function LoginFormComponent() {
 
   async function tryToLogin() {
     try {
-      await login(mail, pwd);
-      setMsgSuccess("Logged correctly!");
-      setMsgError("");
+      const loggedInUser = await login(mail, pwd);
+      if (loggedInUser) {
+        setMsgSuccess("Logged in correctly!");
+        setMsgError("");
+      } else {
+        setMsgSuccess("");
+        setMsgError("User not found in the database");
+      }
     } catch (error) {
       console.log(error);
       setMsgSuccess("");
@@ -29,9 +34,9 @@ export default function LoginFormComponent() {
     return null;
   } else {
     return (
-      <div className="container_login">
+      <div className="container">
         <form
-          className="form_login"
+          className="mt-5 p-4 bg-light rounded shadow-sm"
           onSubmit={(e) => {
             e.preventDefault();
           }}

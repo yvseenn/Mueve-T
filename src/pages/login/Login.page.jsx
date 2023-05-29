@@ -3,7 +3,7 @@ import './Login.css';
 const LoginPage = () => {
   return (
     
-      <LoginFormComponent></LoginFormComponent>
+      <LoginFormComponent className="login"></LoginFormComponent>
   )
 }
 
