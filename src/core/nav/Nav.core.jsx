@@ -1,83 +1,88 @@
-import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { VehicleContext } from '../../context/Users.context';
-import { useNavigate } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+import React, { useContext } from 'react'
+import "./Nav.scss"
+import { useState } from "react"
+import { Link } from 'react-router-dom'
+import { VehicleContext } from '../../context/Users.context'
+import { useNavigate } from 'react-router-dom'
 
-function NavBar() {
-  const { user, logOut } = useContext(VehicleContext);
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+function Nav () {
+    const {user, logOut} = useContext(VehicleContext)
+    const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate ()
+    function tryLogout() {
+        logOut()
+        navigate("/", {replace: true})
+    }
+    return(
+        <div className='navbar'>
+            <div className="nav_logo">LOGOTIPO</div>
+            <div className={`nav_item ${isOpen && "open"}`}>
+            <Link className='link' to="/">🏠 HOME</Link>
+            <Link className='link' to="/fleet">🚗 FLOTA DE COCHES</Link>
 
-  function tryLogout() {
-    setIsLoading(true); 
-    setTimeout(() => {
-      logOut();
-      setIsLoading(false); 
-      navigate('/', { replace: true });
-    }, 2000); 
-  }
+            {
+                user? <Link className='link' to="/rental">📅 GESTIONAR RESERVA</Link>: ""
+            }
 
-  return (
-    <Navbar bg="light" variant="light" expand="lg" className="px-4 mx-0">
-      <Navbar.Brand href="/">LOGOTIPO</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">
-            🏠 HOME
-          </Nav.Link>
-          <Nav.Link as={Link} to="/fleet">
-            🚗 FLOTA DE COCHES
-          </Nav.Link>
-          {user && user.role === 'admin' && (
-            <Nav.Link as={Link} to="/rental">
-              📅 GESTIONAR RESERVAS
-            </Nav.Link>
-          )}
-          {!user && (
-            <Nav.Link as={Link} to="/login">
-              📚 LOGIN
-            </Nav.Link>
-          )}
-          {user && (
-            <Nav.Link as={Link} to="/areaprivada">
-              Area Privada
-            </Nav.Link>
-          )}
-          {!user && (
-            <Nav.Link as={Link} to="/signup">
-              ✏️ REGISTER
-            </Nav.Link>
-          )}
-          {user && user.role === 'admin' && (
-            <Nav.Link as={Link} to="/crearvehiculo">
-              CREAR VEHICULO
-            </Nav.Link>
-          )}
-          
-        </Nav>
-        <Nav>
-          <span className="text-light">{user ? user.name : ''}</span>
-          {user && (
-            <>
-              {isLoading ? (
-                <Button variant="primary" size='sm' className='mr-2 ml-2' disabled>
-                  Logging out...
-                </Button>
-              ) : (
-                <Button variant="dark" size='lg' onClick={tryLogout}>
-                  Logout
-                </Button>
-              )}
-            </>
-          )}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+           
+            {
+                user?  ""  : <Link className='link_login' to="/login">📚 LOGIN</Link>
+            }
+           
+
+            {
+                user? <Link className='link_area' to="/areaprivada">Area Privada</Link>: ""
+            }
+           
+            {
+                user?  ""  : <Link className='link' to="/signup">✏️ REGISTER</Link>
+            }
+              {
+               user?   <Link className='link' to="/crearvehiculo"> CREAR VEHICULO</Link>: ""
+            }
+            {
+                user?<button className='link' onClick={tryLogout}> Logout</button>: ""
+            }
+
+            
+            <span>{user?user.email:""}</span>
+            </div>
+            <div className={`nav_toggle ${isOpen && "open"}`} onClick={()=> setIsOpen(!isOpen)}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    )
+
+    // Agrega este código JavaScript al final de tu archivo
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.querySelector(".nav_toggle");
+    const navItem = document.querySelector(".nav_item");
+  
+    menuToggle.addEventListener("click", function() {
+      navItem.classList.toggle("open");
+    });
+  
+    const navLinks = document.querySelectorAll(".nav_item a");
+    navLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        navItem.classList.remove("open");
+      });
+    });
+  
+    // Agrega esta función para comprimir el menú hamburguesa
+    function compressMenu() {
+      navItem.classList.remove("open");
+    }
+  
+    // Agrega esta línea para llamar a la función compressMenu() cuando se haga clic en cualquier elemento del menú
+    navLinks.forEach(function(link) {
+      link.addEventListener("click", compressMenu);
+    });
+  });
+  
 }
 
-export default NavBar;
+export default Nav

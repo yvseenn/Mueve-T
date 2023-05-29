@@ -1,0 +1,55 @@
+
+.container_signup{
+  color: white;
+  background-color: #1B2435;
+  border: 1px solid black;
+  border-radius: 9px;
+  margin-top: 50px;
+  padding: 30px;
+display: flex;
+flex-flow: column wrap;
+gap: 20px;
+justify-content: space-around;
+align-items: center;
+align-content: center;
+}
+
+.formulario_signup{
+ display: flex;
+ flex-flow: wrap column;
+ justify-content: space-around;
+ align-items: start;
+ align-content: start;
+ gap: 20px;
+}
+
+
+.form_input{
+  display:flex;
+  flex-flow: wrap column;
+}
+  
+.button button{
+  width: 100%;
+  padding: 0px;
+}
+
+@media (max-width: 768px) {
+  .formulario_signup{
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    align-items: start;
+    align-content: start;
+    gap: 10px;
+    font-size: 14px;
+
+   }
+
+ 
+
+   .input_signup{
+    height: 50%;
+   }
+   
+}

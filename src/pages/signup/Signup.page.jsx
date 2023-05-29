@@ -1,4 +1,3 @@
-import './Signup.scss';
 import SignupForm from '../../components/register/signup.components';
 const SignupPage = () => {
   return (

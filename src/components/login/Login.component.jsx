@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { VehicleContext } from "../../context/Users.context";
+import "./login.css";
 
 export default function LoginFormComponent() {
   const [mail, setMail] = useState("pereira@mail.com");
@@ -40,38 +41,44 @@ export default function LoginFormComponent() {
             e.preventDefault();
           }}
         >
-          <div className="form-group">
-            <label>Email:</label>
-            <input
-              value={mail}
-              onChange={(e) => setMail(e.target.value)}
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-            />
+          <div className="card">
+            <div className="input_login">
+              <input
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+                type="email"
+                placeholder="email"
+              />
+            </div>
+            <div className="input_login">
+              <input
+                value={pwd}
+                onChange={(e) => setPwd(e.target.value)}
+                type="password"
+                placeholder="contraseña"
+              />
+            </div>
+            <div className="msg1">
+              {msgError ? (
+                <small style={{ color: "red" }}>{msgError}</small>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="msg2">
+              {msgSuccess ? (
+                <small style={{ color: "green" }}>{msgSuccess}</small>
+              ) : (
+                ""
+              )}
+            </div>
+              <button className="button" onClick={tryToLogin}>login</button>
+           
+            <small className="small">
+              Todavía no estás registrado?{" "}
+              <Link className="link_login" to="/signup">Regístrate aquí</Link>
+            </small>
           </div>
-          <div className="form-group">
-            <label>Password:</label>
-            <input
-              value={pwd}
-              onChange={(e) => setPwd(e.target.value)}
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
-          <div className="text-danger">{msgError}</div>
-          <div className="text-success">{msgSuccess}</div>
-          <button
-            onClick={tryToLogin}
-            className="btn btn-primary mt-3"
-          >
-            Login
-          </button>
-          <small className="d-block mt-3">
-            ¿Todavía no estás registrado?{" "}
-            <Link to="/signup">Regístrate aquí</Link>
-          </small>
         </form>
       </div>
     );

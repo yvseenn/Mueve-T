@@ -1,3 +1,4 @@
+import "./signup.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../shared/Api";
@@ -103,6 +104,9 @@ export default function SignupForm() {
           <button className="btn btn-primary" type="submit">Registrarse</button>
         </div>
       </form>
+      <div className="button">
+      <button type="submit">Registrarse</button>
+      </div>
     </div>
   );
 }

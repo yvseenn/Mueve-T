@@ -1,0 +1,57 @@
+.total_privado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:  rgb(114, 114, 159);
+}
+
+.div_area{
+    color: white;
+    background-color: rgb(57, 57, 109);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+    border-radius: 9px;
+    width: 50%;
+    display: flex;
+    flex-flow: wrap column;
+   
+    align-items: center;
+    align-content: center;
+}
+
+.h1_privado{
+    color: white;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+
+    .total_privado{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color:  rgb(114, 114, 159);
+    }
+    
+    .div_area{
+        color: white;
+        background-color: rgb(57, 57, 109);
+        margin-top: 50px;
+        margin-bottom: 50px;
+      
+        border-radius: 9px;
+        width: 100%;
+        display: flex;
+        flex-flow: wrap column;
+       
+        align-items: center;
+        align-content: center;
+    }
+    
+    .h1_privado{
+        color: white;
+        margin-top: 50px;
+    }
+
+}

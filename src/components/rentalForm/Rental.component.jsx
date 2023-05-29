@@ -46,6 +46,27 @@ const ReservationForm = (carDetails) => {
       .catch((error) => {
         console.error("Error al enviar la reserva:", error);
       });
+      alert('Reservation created successfully!');
+    } catch (error) {
+      console.error('Error creating reservation:', error);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setReservationData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCarSelect = (event) => {
+    const selectedCarId = event.target.value;
+    const selectedCar = cars.find((car) => car._id === selectedCarId);
+    if (selectedCar) {
+      setReservationData((prevData) => ({
+        ...prevData,
+        car: selectedCarId,
+        rentPrice: selectedCar.rentPrice,
+      }));
+    }
   };
 
   return (

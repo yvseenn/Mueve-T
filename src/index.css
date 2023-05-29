@@ -1,3 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+* {
+    /* box-sizing:border-box; */
+    text-decoration: none;
+    list-style: none;
+    font-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* color: black; */
+}

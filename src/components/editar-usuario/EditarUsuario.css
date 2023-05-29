@@ -1,0 +1,8 @@
+.button_editar{
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    align-content: center;
+    width: 200px;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,86 @@
+.container_login{
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+  height: 75vh;
+  margin-top: 60px;
+}
+
+.form_login{
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 30%;
+  height: 80%;
+  margin-top: -10%;
+  padding-bottom: 3%;
+  gap: 4px;
+  background-color: rgb(190, 206, 235);
+}
+
+.card{
+  margin-top: 10%;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+}
+
+.input_login{
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  height: 30px;
+}
+
+input{
+  height: 100%;
+  width: 100%;
+  
+}
+
+.small{
+  font-size: 18px;
+}
+
+button{
+  width: 100px;
+}
+
+button:hover{
+  background-color: greenyellow;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .form_login{
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 90%;
+    height: 80%;
+    margin-top: -10%;
+    padding-bottom: 3%;
+    gap: 4px;
+    background-color: rgb(190, 206, 235);
+  }
+
+  .small{
+    font-size: 18px;
+    width: 80%;
+  }
+}
