@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { VehicleContext } from "../../context/Users.context";
-import "./login.scss";
+import "./login.css";
 
 export default function LoginFormComponent() {
   const [mail, setMail] = useState("pereira@mail.com");
@@ -67,9 +67,8 @@ export default function LoginFormComponent() {
                 ""
               )}
             </div>
-            <div className="button">
-              <button onClick={tryToLogin}>login</button>
-            </div>
+              <button className="button" onClick={tryToLogin}>login</button>
+           
             <small className="small">
               Todavía no estás registrado?{" "}
               <Link className="link_login" to="/signup">Regístrate aquí</Link>

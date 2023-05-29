@@ -1,0 +1,92 @@
+/* .form_container{
+  height: 100vh;
+width: 100vw;
+} */
+.total_gestion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: rgb(114, 114, 159);
+  gap: 30px   ;
+ 
+}
+.container_gestion{
+  /* margin-top: 50px; */
+  width: 800px;
+  background-color: rgb(57, 57, 109);  
+  border-radius: 9px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  color: white;
+
+  -webkit-box-shadow: -13px 16px 18px 10px rgba(0,0,0,0.75);
+  -moz-box-shadow: -13px 16px 18px 10px rgba(0,0,0,0.75);
+  box-shadow: -13px 16px 18px 10px rgba(0,0,0,0.75);
+  
+
+}
+
+.p_crear{
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  /* text-align: center; */
+}
+
+
+
+input {
+  width: 400px;
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+  border-radius: 9px;
+  color: black;
+}
+
+.button_crear{
+  display: block;
+  width: 15%;
+  padding: 10px;
+  /* margin-top: 20px; */
+  margin-bottom: 30px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.label_gestion{
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+
+  .p_crear{
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    /* margin-left: 16%; */
+    text-align: center;
+  }
+
+  .total_gestion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    background-color: rgb(114, 114, 159);
+    gap: 30px   ;
+   
+  }
+}

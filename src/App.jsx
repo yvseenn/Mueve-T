@@ -10,7 +10,7 @@ import SignupPage from "./pages/signup/Signup.page";
 // import  FleetPages from './pages/fleet/FleetPages';
 import Home from "./pages/home/Home.pages";
 import  FleetPages from './pages/fleet/FleetPages';
-import AreaPrivadaPage from "./pages/AreaPrivada.page";
+import AreaPrivadaPage from "./pages/AreaPrivada/AreaPrivada.page";
 import Gestion from "./pages/gestion/Gestion";
 import CarPage from "./pages/carDetails/CarPage";
 import RentaForm from "./components/rentalForm/Rental.component";

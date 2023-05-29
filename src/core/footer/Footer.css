@@ -1,196 +1,49 @@
-
-.total_footer{
+.total_footer {
   background-color: rgb(27, 36, 53);
-  margin-bottom: 0; 
+  margin-bottom: 0;
   padding: 2%;
+  width: 100vw;
 }
 
-.footer-container {
-    background-color: rgb(27, 36, 53);
-    padding: 10px;
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-    gap: 10px;
-    font-size: 14px;
-    color: white;
-    width: 100%;
-   
-  }
-    .contact-info {
-    
-      display: flex;
-      flex-flow: wrap column;
-      justify-content: space-around;
-      align-items: center;
-      text-align: center;
-      gap: 7px;
-    width: 10%;
-    margin-left: -7%;
-  }
 
-  .company_info {
-    display: flex;
-    flex-flow:  wrap row;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    color: white;
-    width: 30%;
-   }
-  
-  .social-media {
-  
-    color: white;
-    display: flex;
-    flex-flow: wrap column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .social-media ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-  }
-  
-  
-  .final_copy {
-    background-color: rgb(27, 36, 53);
-    display: flex;
-    flex-flow: wrap column;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-    gap: 10px;
-    font-size: 11px;
-  }
-
-  .letras_final_copy {
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    gap: 8px;
-  }
-  
-  .links_copy{
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    font-size: 11px;
-  }
-
-  .a_links_copy{
-    color: white;
-  }
-
-  .divisor{
-    border: 0.5px solid rgb(87, 86, 86);
-    height: 2vw;
-  }
-  /* Chatbot section */
-  .chatbot-container {
-    /* Add your chatbot styles here */
-  }
-  
-  @media (max-width: 768px){
-    *{
-    overflow-x: hidden;
-    }
-    
-    .footer-container {
-      background-color: rgb(27, 36, 53);
-      padding: 10px;
-      display: flex;
-      flex-flow: wrap column;
-      justify-content: space-around;
-      align-items: center;
-      align-content: center;
-      gap: 10px;
-      font-size: 14px;
-      color: white;
-      width: 100%;
-     
-    }
-
-    .divisor{
-      border: 0.5px solid rgb(87, 86, 86);
-      height: 0px;
-    }
-
-    .company_info p{
-      display: none;
-    }
-
-    .company_info h3{
-      display: none;
-    }
+.chatbot_footer {
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-around;
+  gap: 50px;
+  align-items: center;
+  align-content: center;
+}
 
 
-
-
-    .contact-info {
-    
-      display: flex;
-      flex-flow: wrap column;
-      justify-content: space-around;
-      align-items: center;
-      text-align: center;
-      gap: 7px;
-      width: 100%;
-      height: 20%;
-      margin-left: -7%;
-    }
-  }
-  
-
-.footer-container {
+.footer_container {
   background-color: rgb(27, 36, 53);
   padding: 10px;
   display: flex;
-  flex-flow: wrap row;
+  flex-flow: wrap column;
   justify-content: space-around;
   align-items: center;
   align-content: center;
-  gap: 10px;
+  gap: 30%;
   font-size: 14px;
   color: white;
   width: 100%;
 }
-.contact-info {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: space-around;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 20px;
-  width: 270px;
-  margin-left: -180px;
+
+.divisor {
+  border: 0.5px solid rgb(87, 86, 86);
+  height: 5px;
 }
 
-.company_info {
+.contact-info {
   display: flex;
-  flex-flow: wrap row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  color: white;
-  width: 500px;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  margin-bottom: 20px;
-  padding-left: 500px;
-  padding-right: 500px;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  text-align: center;
+  gap: 7px;
+  width: 30%;
+  margin-left: -10px;
+  object-fit: cover;
 }
 
 .social-media {
@@ -201,6 +54,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  width: 30%;
 }
 
 .social-media ul {
@@ -209,10 +63,6 @@
   margin: 0;
   display: flex;
   gap: 20px;
-}
-
-.social-media li {
-  margin-right: 10px;
 }
 
 .final_copy {
@@ -234,7 +84,6 @@
   align-items: center;
   color: white;
   gap: 8px;
-
 }
 
 .links_copy {
@@ -250,12 +99,67 @@
   color: white;
 }
 
-.divisor {
-  border: 0.5px solid rgb(87, 86, 86);
-  height: 2vw;
+
+@media (max-width: 768px) {
+
+  .chatbot_footer {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    gap: 50px;
+    align-items: center;
+    align-content: center;
+  }
+
+  .chatbot{
+    width: 80%;
+    height:auto;
+    /* margin-left: 180px; */
+  }
+  
+
+  .footer_container {
+    background-color: rgb(27, 36, 53);
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: white;
+    width: 100vw;
+  }
+
+  .divisor {
+  display: none;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;  
+    gap: 7px;
+    width: 100%;
+    height: 20%;
+    
+    /* z-index: 1000000px; */
+  }
+
+  .social-media {
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
 }
-/* Chatbot section */
-.chatbot-container {
-  /* Add your chatbot styles here */
-}
+
+
 
